@@ -1,0 +1,5 @@
+name = "Context Flag"
+description = "Provides integration between the Context and Flag modules."
+core = 7.x
+dependencies[] = context
+dependencies[] = flag
