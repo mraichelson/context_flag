@@ -4,9 +4,9 @@
  */
 
 /**
- * Active Flag condition.
+ * Node Active Flag condition.
  */
-class flag_active extends context_condition {
+class node_active extends context_condition {
   function condition_values() {
     $flags = flag_get_flags();
     $values = array();
@@ -16,15 +16,32 @@ class flag_active extends context_condition {
     return $values;
   }
   function execute() {
-    // menu_get_object()
-    // flag_properties_get_flagging_boolean($entity, array $options, $name, $entity_type, $property_info)
+    if ($this->condition_used()) {
+      $obj_page = menu_get_object();
+      if (!empty($obj_page->nid)) {
+        $flags = flag_get_flags();
+        $arr_flags = array();
+        foreach($flags as $flag) {
+          $obj_flag = flag_get_flag($flag->name);
+          $arr_flags[$flag->name] = $obj_flag->is_flagged($obj_page->nid);
+        }
+        foreach ($this->get_contexts() as $context) {
+          $arr_trigger_flags = $context->conditions['node_active']['values'];
+          foreach ($arr_trigger_flags as $flag_name) {
+            if ($arr_flags[$flag_name]) {
+              $this->condition_met($context);
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 /**
- * Inactive Flag condition.
+ * Node Inactive Flag condition.
  */
-class flag_inactive extends context_condition {
+class node_inactive extends context_condition {
   function condition_values() {
     $flags = flag_get_flags();
     $values = array();
@@ -33,5 +50,25 @@ class flag_inactive extends context_condition {
     }
     return $values;
   }
-  function execute() {}
+  function execute() {
+    if ($this->condition_used()) {
+      $obj_page = menu_get_object();
+      if (!empty($obj_page->nid)) {
+        $flags = flag_get_flags();
+        $arr_flags = array();
+        foreach($flags as $flag) {
+          $obj_flag = flag_get_flag($flag->name);
+          $arr_flags[$flag->name] = $obj_flag->is_flagged($obj_page->nid);
+        }
+        foreach ($this->get_contexts() as $context) {
+          $arr_trigger_flags = $context->conditions['node_inactive']['values'];
+          foreach ($arr_trigger_flags as $flag_name) {
+            if (!$arr_flags[$flag_name]) {
+              $this->condition_met($context);
+            }
+          }
+        }
+      }
+    }
+  }
 }
