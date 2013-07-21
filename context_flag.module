@@ -3,3 +3,61 @@
  * @file context_flag.module
  * Main module file for the context_flag module.
  */
+
+/**
+ * Implements hook_context_plugins().
+ */
+function context_flag_context_plugins() {
+  $plugins = array();
+  $path = drupal_get_path('module', 'context_flag');
+  $condition_include = 'context_flag_condition.inc';
+  $plugins['flag_active'] = array(
+    'handler' => array(
+      'path' => $path,
+      'file' => $condition_include,
+      'class' => 'flag_active',
+      'parent' => 'context_condition',
+    ),
+  );
+  $plugins['flag_inactive'] = array(
+    'handler' => array(
+      'path' => $path,
+      'file' => $condition_include,
+      'class' => 'flag_inactive',
+      'parent' => 'context_condition',
+    ),
+  );
+  return $plugins;
+}
+
+/**
+ * Implements hook_context_registry().
+ */
+function context_flag_context_registry() {
+  return array(
+    'conditions' => array(
+      'flag_active' => array(
+        'title' => 'Flag Active',
+        'description' => t('Enable this context when this Flag is active.'),
+        'plugin' => 'flag_active',
+      ),
+      'flag_inactive' => array(
+        'title' => 'Flag Inactive',
+        'description' => t('Enable this context when this Flag is inactive.'),
+        'plugin' => 'flag_inactive',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_context_page_condition().
+ */
+function context_flag_context_page_condition() {
+  if ($plugin = context_get_plugin('condition', 'flag_active')) {
+    $plugin->execute();
+  }
+  if ($plugin = context_get_plugin('condition', 'flag_inactive')) {
+    $plugin->execute();
+  }
+}

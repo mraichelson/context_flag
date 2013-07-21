@@ -1,5 +1,10 @@
 name = "Context Flag"
 description = "Provides integration between the Context and Flag modules."
 core = 7.x
+version = 1.x-dev
+package = Context
+
+files[] = context_flag_condition.inc
+
 dependencies[] = context
 dependencies[] = flag
