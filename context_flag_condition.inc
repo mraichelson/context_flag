@@ -15,7 +15,10 @@ class flag_active extends context_condition {
     }
     return $values;
   }
-  function execute() {}
+  function execute() {
+    // menu_get_object()
+    // flag_properties_get_flagging_boolean($entity, array $options, $name, $entity_type, $property_info)
+  }
 }
 
 /**

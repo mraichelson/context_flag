@@ -6,5 +6,6 @@ When enabled it creates a new Context condition which is based on the value of a
 
 Todo
 ----
-* Everything.
+* Condition: Flag(s) is/are active.
+* Condition: Flag(s) is/are inactive.
 * Make sure it works with Features.
