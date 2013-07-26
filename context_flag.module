@@ -9,12 +9,12 @@
  */
 function context_flag_context_plugins() {
   $plugins = array();
-  $path = drupal_get_path('module', 'context_flag');
-  $condition_include = 'context_flag_condition.inc';
+  $path = drupal_get_path('module', 'context_flag') . 'conditions/';
+  // Plugins: Node Flags
   $plugins['node_active'] = array(
     'handler' => array(
       'path' => $path,
-      'file' => $condition_include,
+      'file' => 'context_flag_condition.node.inc',
       'class' => 'node_active',
       'parent' => 'context_condition',
     ),
@@ -22,7 +22,7 @@ function context_flag_context_plugins() {
   $plugins['node_inactive'] = array(
     'handler' => array(
       'path' => $path,
-      'file' => $condition_include,
+      'file' => 'context_flag_condition.node.inc',
       'class' => 'node_inactive',
       'parent' => 'context_condition',
     ),
