@@ -98,7 +98,7 @@ class user_account_inactive extends context_condition {
   }
   function execute() {
     if ($this->condition_used() && !empty($account->uid)) {
-      // check if this flag is active for this display.
+      // check if this flag is inactive for this display.
       $flags = flag_get_flags('user');
       $arr_flags = array();
       foreach($flags as $flag) {
