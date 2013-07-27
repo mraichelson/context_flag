@@ -1,6 +1,7 @@
 <?php
 /**
- * @file context_flag_condition.inc
+ * @file context_flag_condition.node.inc
+ * Provides Context integration for Flags applied to nodes.
  */
 
 /**

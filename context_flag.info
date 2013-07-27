@@ -4,7 +4,11 @@ core = 7.x
 version = 1.x-dev
 package = Context
 
+; Flag type condition files.
+files[] = conditions/context_flag_condition.comment.inc
+files[] = conditions/context_flag_condition.entity.inc
 files[] = conditions/context_flag_condition.node.inc
+files[] = conditions/context_flag_condition.user.inc
 
 dependencies[] = context
 dependencies[] = flag
