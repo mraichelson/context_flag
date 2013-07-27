@@ -9,7 +9,7 @@
  */
 class node_active extends context_condition {
   function condition_values() {
-    $flags = flag_get_flags();
+    $flags = flag_get_flags('node');
     $values = array();
     foreach ($flags as $flag) {
       $values[$flag->name] = $flag->title;
@@ -20,7 +20,7 @@ class node_active extends context_condition {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();
       if (!empty($obj_page->nid)) {
-        $flags = flag_get_flags();
+        $flags = flag_get_flags('node');
         $arr_flags = array();
         foreach($flags as $flag) {
           $obj_flag = flag_get_flag($flag->name);
@@ -44,7 +44,7 @@ class node_active extends context_condition {
  */
 class node_inactive extends context_condition {
   function condition_values() {
-    $flags = flag_get_flags();
+    $flags = flag_get_flags('node');
     $values = array();
     foreach ($flags as $flag) {
       $values[$flag->name] = $flag->title;
@@ -55,7 +55,7 @@ class node_inactive extends context_condition {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();
       if (!empty($obj_page->nid)) {
-        $flags = flag_get_flags();
+        $flags = flag_get_flags('node');
         $arr_flags = array();
         foreach($flags as $flag) {
           $obj_flag = flag_get_flag($flag->name);
