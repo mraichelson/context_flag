@@ -5,9 +5,9 @@
  */
 
 /**
- * User Active Flag condition.
+ * User Page Active Flag condition.
  */
-class user_active extends context_condition {
+class user_page_active extends context_condition {
   function condition_values() {
     $flags = flag_get_flags('user');
     $values = array();
@@ -28,9 +28,9 @@ class user_active extends context_condition {
 }
 
 /**
- * User Inactive Flag condition.
+ * User Page Inactive Flag condition.
  */
-class user_inactive extends context_condition {
+class user_page_inactive extends context_condition {
   function condition_values() {
     $flags = flag_get_flags('user');
     $values = array();

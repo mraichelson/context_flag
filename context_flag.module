@@ -27,23 +27,24 @@ function context_flag_context_plugins() {
       'parent' => 'context_condition',
     ),
   );
-  // Plugins: User Flags
-  $plugins['user_active'] = array(
+  // Plugins: User Page Flags
+  $plugins['user_page_active'] = array(
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.user.inc',
-      'class' => 'user_active',
+      'class' => 'user_page_active',
       'parent' => 'context_condition',
     ),
   );
-  $plugins['user_inactive'] = array(
+  $plugins['user_page_inactive'] = array(
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.user.inc',
-      'class' => 'user_inactive',
+      'class' => 'user_page_inactive',
       'parent' => 'context_condition',
     ),
   );
+  // Plugins: User Account Flags
   $plugins['user_account_active'] = array(
     'handler' => array(
       'path' => $path,
@@ -71,33 +72,34 @@ function context_flag_context_registry() {
     'conditions' => array(
       // Node conditions
       'node_active' => array(
-        'title' => 'Node Flag Active',
+        'title' => 'Node flag active',
         'description' => t('Enable this context when this Flag is active.'),
         'plugin' => 'node_active',
       ),
       'node_inactive' => array(
-        'title' => 'Node Flag Inactive',
+        'title' => 'Node flag inactive',
         'description' => t('Enable this context when this Flag is inactive.'),
         'plugin' => 'node_inactive',
       ),
-      // User conditions
-      'user_active' => array(
-        'title' => 'User Flag Active',
+      // User page conditions
+      'user_page_active' => array(
+        'title' => 'User page - flag active',
         'description' => t('Enable this context when viewing a user profile and this Flag is active.'),
-        'plugin' => 'user_active',
+        'plugin' => 'user_page_active',
       ),
-      'user_inactive' => array(
-        'title' => 'User Flag Inactive',
+      'user_page_inactive' => array(
+        'title' => 'User page - flag inactive',
         'description' => t('Enable this context when viewing a user profile and this Flag is inactive.'),
-        'plugin' => 'user_inactive',
+        'plugin' => 'user_page_inactive',
       ),
+      // User account conditions
       'user_account_active' => array(
-        'title' => 'Current User Flag Active',
+        'title' => 'Current user - flag active',
         'description' => t('Enable this context when this flag is active for the currently logged-in user.'),
         'plugin' => 'user_account_active',
       ),
       'user_account_inactive' => array(
-        'title' => 'Current User Flag Inactive',
+        'title' => 'Current user - flag inactive',
         'description' => t('Enable this context when this flag is inactive for the currently logged-in user.'),
         'plugin' => 'user_account_inactive',
       ),
@@ -116,13 +118,14 @@ function context_flag_context_page_condition() {
   if ($plugin = context_get_plugin('condition', 'node_inactive')) {
     $plugin->execute();
   }
-  // User conditions
-  if ($plugin = context_get_plugin('condition', 'user_active')) {
+  // User page conditions
+  if ($plugin = context_get_plugin('condition', 'user_page_active')) {
     $plugin->execute();
   }
-  if ($plugin = context_get_plugin('condition', 'user_inactive')) {
+  if ($plugin = context_get_plugin('condition', 'user_page_inactive')) {
     $plugin->execute();
   }
+  // User account conditions
   if ($plugin = context_get_plugin('condition', 'user_account_active')) {
     global $user;
     $plugin->execute($user);
