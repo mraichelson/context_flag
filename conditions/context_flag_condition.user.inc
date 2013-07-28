@@ -6,6 +6,7 @@
 
 /**
  * User Page Active Flag condition.
+ * TODO: Make this work.
  */
 class user_page_active extends context_condition {
   function condition_values() {
@@ -29,6 +30,7 @@ class user_page_active extends context_condition {
 
 /**
  * User Page Inactive Flag condition.
+ * TODO: Make this work.
  */
 class user_page_inactive extends context_condition {
   function condition_values() {
@@ -86,6 +88,7 @@ class user_account_active extends context_condition {
 
 /**
  * Current logged in user does not have active flag.
+ * TODO: Make this work.
  */
 class user_account_inactive extends context_condition {
   function condition_values() {
@@ -107,7 +110,7 @@ class user_account_inactive extends context_condition {
       }
       // trigger results
       foreach ($this->get_contexts() as $context) {
-        $arr_trigger_flags = $context->conditions['user_account_active']['values'];
+        $arr_trigger_flags = $context->conditions['user_account_inactive']['values'];
         foreach ($arr_trigger_flags as $flag_name) {
           if (!$arr_flags[$flag_name]) {
             $this->condition_met($context);

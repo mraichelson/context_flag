@@ -10,6 +10,40 @@
 function context_flag_context_plugins() {
   $plugins = array();
   $path = drupal_get_path('module', 'context_flag') . 'conditions/';
+  // Plugins: Comment Flags
+  $plugins['comment_active'] = array(
+    'handler' => array(
+      'path' => $path,
+      'file' => 'context_flag_condition.comment.inc',
+      'class' => 'comment_active',
+      'parent' => 'context_condition',
+    ),
+  );
+  $plugins['comment_inactive'] = array(
+    'handler' => array(
+      'path' => $path,
+      'file' => 'context_flag_condition.comment.inc',
+      'class' => 'comment_inactive',
+      'parent' => 'context_condition',
+    ),
+  );
+  // Plugins: Entity Flags
+  $plugins['entity_active'] = array(
+    'handler' => array(
+      'path' => $path,
+      'file' => 'context_flag_condition.entity.inc',
+      'class' => 'entity_active',
+      'parent' => 'context_condition',
+    ),
+  );
+  $plugins['entity_inactive'] = array(
+    'handler' => array(
+      'path' => $path,
+      'file' => 'context_flag_condition.entity.inc',
+      'class' => 'entity_inactive',
+      'parent' => 'context_condition',
+    ),
+  );
   // Plugins: Node Flags
   $plugins['node_active'] = array(
     'handler' => array(
@@ -70,6 +104,28 @@ function context_flag_context_plugins() {
 function context_flag_context_registry() {
   return array(
     'conditions' => array(
+      // Comment conditions
+      'comment_active' => array(
+        'title' => 'Comment flag active',
+        'description' => t('Enable this context when this Flag is active.'),
+        'plugin' => 'comment_active',
+      ),
+      'comment_inactive' => array(
+        'title' => 'Comment flag inactive',
+        'description' => t('Enable this context when this Flag is inactive.'),
+        'plugin' => 'comment_inactive',
+      ),
+      // Entity conditions
+      'entity_active' => array(
+        'title' => 'Entity flag active',
+        'description' => t('Enable this context when this Flag is active.'),
+        'plugin' => 'entity_active',
+      ),
+      'entity_inactive' => array(
+        'title' => 'Entity flag inactive',
+        'description' => t('Enable this context when this Flag is inactive.'),
+        'plugin' => 'entity_inactive',
+      ),
       // Node conditions
       'node_active' => array(
         'title' => 'Node flag active',
@@ -83,12 +139,12 @@ function context_flag_context_registry() {
       ),
       // User page conditions
       'user_page_active' => array(
-        'title' => 'User page - flag active',
+        'title' => 'User page flag active',
         'description' => t('Enable this context when viewing a user profile and this Flag is active.'),
         'plugin' => 'user_page_active',
       ),
       'user_page_inactive' => array(
-        'title' => 'User page - flag inactive',
+        'title' => 'User page flag inactive',
         'description' => t('Enable this context when viewing a user profile and this Flag is inactive.'),
         'plugin' => 'user_page_inactive',
       ),
@@ -111,6 +167,20 @@ function context_flag_context_registry() {
  * Implements hook_context_page_condition().
  */
 function context_flag_context_page_condition() {
+  // Comment conditions
+  if ($plugin = context_get_plugin('condition', 'comment_active')) {
+    $plugin->execute();
+  }
+  if ($plugin = context_get_plugin('condition', 'comment_inactive')) {
+    $plugin->execute();
+  }
+  // Entity conditions
+  if ($plugin = context_get_plugin('condition', 'entity_active')) {
+    $plugin->execute();
+  }
+  if ($plugin = context_get_plugin('condition', 'entity_inactive')) {
+    $plugin->execute();
+  }
   // Node conditions
   if ($plugin = context_get_plugin('condition', 'node_active')) {
     $plugin->execute();
