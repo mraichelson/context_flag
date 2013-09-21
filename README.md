@@ -7,8 +7,8 @@ When enabled it creates new Context conditions which are based on the value of a
 Working
 -------
 * Node active flags
-* Node inactive flags (if used with another condition these seem to work)
 * Current user active flags
+* Features export
 
 Not working
 -----------
@@ -18,9 +18,10 @@ Not working
 
 Todo
 ----
+* Node inactive flags (if used with another condition these seem to work), I've commented these out for the time being.
 * Comment active flags (I'm not sure if this would be useful or not, I'm leaning towards no.)
 * Comment inactive flags
 * Entity active flags
 * Entity inactive flags
 * Should inactive flags be an option at all? I'm sure there's a potential use-case for them, but I'm not sure they're really useful.
-* Make sure it works with Features.
+* Contexts triggered by multiple flags operate as "OR" rather than "AND", add a configuration option to account for this?
