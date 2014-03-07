@@ -8,9 +8,7 @@
  * Node Active Flag condition.
  */
 class ContextFlagNodeActive extends context_condition {
-  /**
-   * Context condition values.
-   */
+  // Context condition values.
   function condition_values() {
     $flags = flag_get_flags('node');
     $values = array();
@@ -19,27 +17,14 @@ class ContextFlagNodeActive extends context_condition {
     }
     return $values;
   }
-  /** 
-   * Context form modifications.
-   */
+  // Context form modifications.
   function options_form($context) {
+    $context_setting_name = 'flag_node_active';
     $defaults = $this->fetch_from_context($context, 'options');
-    $default_value = FALSE;
-    if (isset($defaults['flag_node_active'])) {
-      $default_value = $defaults['flag_node_active'];
-    }
-    return array(
-      'flag_node_active' => array(
-        '#title' => t('Require all flags'),
-        '#type' => 'checkbox',
-        '#description' => t('Trigger this context only when ALL selections are active.'),
-        '#default_value' => $default_value,
-      ),
-    );
+    $default_value = isset($defaults[$context_setting_name]) ? $defaults[$context_setting_name] : FALSE;
+    return _context_flag_requireall_form($context_setting_name, $default_value);
   }
-  /** 
-   * Context check execution.
-   */
+  // Context check execution.
   function execute() {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();

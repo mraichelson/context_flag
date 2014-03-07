@@ -8,6 +8,7 @@
  * User Page Active Flag condition.
  */
 class ContextFlagUserPageActive extends context_condition {
+  // Context condition values.
   function condition_values() {
     $flags = flag_get_flags('user');
     $values = array();
@@ -16,6 +17,14 @@ class ContextFlagUserPageActive extends context_condition {
     }
     return $values;
   }
+  // Context form modifications.
+  function options_form($context) {
+    $context_setting_name = 'flag_user_page_active';
+    $defaults = $this->fetch_from_context($context, 'options');
+    $default_value = isset($defaults[$context_setting_name]) ? $defaults[$context_setting_name] : FALSE;
+    return _context_flag_requireall_form($context_setting_name, $default_value);
+  }
+  // Context check execution.
   function execute() {
     if ($this->condition_used()) {
       // check if this flag is active for this display.
@@ -29,7 +38,7 @@ class ContextFlagUserPageActive extends context_condition {
         }
         // trigger results.
         foreach ($this->get_contexts() as $context) {
-          $arr_trigger_flags = $context->conditions['user_page_active']['values'];
+          $arr_trigger_flags = $context->conditions['flag_user_page_active']['values'];
           foreach ($arr_trigger_flags as $flag_name) {
             if ($arr_flags[$flag_name]) {
               $this->condition_met($context);
@@ -71,6 +80,7 @@ class ContextFlagUserPageInactive extends context_condition {
  * Current logged in user has active flag.
  */
 class ContextFlagUserAccountActive extends context_condition {
+  // Context condition values.
   function condition_values() {
     $flags = flag_get_flags('user');
     $values = array();
@@ -79,6 +89,14 @@ class ContextFlagUserAccountActive extends context_condition {
     }
     return $values;
   }
+  // Context form modifications.
+  function options_form($context) {
+    $context_setting_name = 'flag_user_account_active';
+    $defaults = $this->fetch_from_context($context, 'options');
+    $default_value = isset($defaults[$context_setting_name]) ? $defaults[$context_setting_name] : FALSE;
+    return _context_flag_requireall_form($context_setting_name, $default_value);
+  }
+  // Context check execution.
   function execute($account) {
     if ($this->condition_used() && !empty($account->uid)) {
       // check if this flag is active for this display.

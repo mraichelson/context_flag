@@ -247,3 +247,18 @@ function context_flag_context_page_condition() {
   }
   */
 }
+
+/**
+ * Helper function for managing the "Require all flags" checkbox on forms.
+ */
+function _context_flag_requireall_form($str_setting, &$value = FALSE) {
+  $form = array(
+    $str_setting => array(
+      '#title' => t('Require all flags'),
+      '#type' => 'checkbox',
+      '#description' => t('Trigger this context only when ALL selections are active.'),
+      '#default_value' => $value,
+    ),
+  );
+  return $form;
+}
