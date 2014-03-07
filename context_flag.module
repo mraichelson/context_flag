@@ -104,7 +104,7 @@ function context_flag_context_registry() {
 function context_flag_context_page_condition() {
   // Use the conditions stored in the registry to trigger contexts.
   $contexts = context_flag_context_registry();
-  foreach($contexts['conditions'] as $delta => $context) {
+  foreach($contexts['conditions'] as $context) {
     // The user_account_active condition needs the user object passed to it.
     if ($context['plugin'] === 'user_account_active') {
       if ($plugin = context_get_plugin('condition', $context['plugin'])) {
