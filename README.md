@@ -6,7 +6,7 @@ When enabled it creates new Context conditions which can be triggered based on t
 
 Working
 -------
-* Node active flags
+* Node active flags (includes contexts that require multiple flags)
 * Current active/logged-in user flags
 * Features export
 
@@ -15,10 +15,6 @@ Not working
 * Current user inactive flags
 * User profile active tags
 * User profile inactive tags
-
-Bugs
-----
-* Contexts triggered by multiple flags of the same type operate as "OR" rather than "AND", add a configuration option to account for this? (A context using node flags X and Y will trigger for nodes that only use flag X, for example.)
 
 Todo
 ----
