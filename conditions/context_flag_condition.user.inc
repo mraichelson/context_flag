@@ -20,9 +20,23 @@ class user_page_active extends context_condition {
   function execute() {
     if ($this->condition_used()) {
       // check if this flag is active for this display.
-      // trigger results
-      foreach ($this->get_contexts() as $context) {
-        // $this->condition_met($context);
+      $flags = flag_get_flags('user');
+      $arr_flags = array();
+      $obj_user = menu_get_object('user');
+      if ($obj_user) {
+        foreach($flags as $flag) {
+          $obj_flag = flag_get_flag($flag->name);
+          $arr_flags[$flag->name] = $obj_flag->is_flagged($obj_user->uid);
+        }
+        // trigger results
+        foreach ($this->get_contexts() as $context) {
+          $arr_trigger_flags = $context->conditions['user_page_active']['values'];
+          foreach ($arr_trigger_flags as $flag_name) {
+            if ($arr_flags[$flag_name]) {
+              $this->condition_met($context);
+            }
+          }
+        }
       }
     }
   }
