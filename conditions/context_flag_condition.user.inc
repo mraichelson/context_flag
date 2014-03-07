@@ -6,7 +6,6 @@
 
 /**
  * User Page Active Flag condition.
- * TODO: Make this work.
  */
 class user_page_active extends context_condition {
   function condition_values() {
