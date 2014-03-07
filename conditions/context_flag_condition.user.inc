@@ -23,7 +23,7 @@ class user_page_active extends context_condition {
       $arr_flags = array();
       $obj_user = menu_get_object('user');
       if ($obj_user) {
-        foreach($flags as $flag) {
+        foreach ($flags as $flag) {
           $obj_flag = flag_get_flag($flag->name);
           $arr_flags[$flag->name] = $obj_flag->is_flagged($obj_user->uid);
         }
@@ -82,7 +82,7 @@ class user_account_active extends context_condition {
       // check if this flag is active for this display.
       $flags = flag_get_flags('user');
       $arr_flags = array();
-      foreach($flags as $flag) {
+      foreach ($flags as $flag) {
         $obj_flag = flag_get_flag($flag->name);
         $arr_flags[$flag->name] = $obj_flag->is_flagged($account->uid);
       }
@@ -117,7 +117,7 @@ class user_account_active extends context_condition {
 //       // check if this flag is inactive for this display.
 //       $flags = flag_get_flags('user');
 //       $arr_flags = array();
-//       foreach($flags as $flag) {
+//       foreach ($flags as $flag) {
 //         $obj_flag = flag_get_flag($flag->name);
 //         $arr_flags[$flag->name] = $obj_flag->is_flagged($account->uid);
 //       }

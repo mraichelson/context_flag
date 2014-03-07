@@ -22,7 +22,7 @@ class node_active extends context_condition {
       if (!empty($obj_page->nid)) {
         $flags = flag_get_flags('node');
         $arr_flags = array();
-        foreach($flags as $flag) {
+        foreach ($flags as $flag) {
           $obj_flag = flag_get_flag($flag->name);
           $arr_flags[$flag->name] = $obj_flag->is_flagged($obj_page->nid);
         }
@@ -57,7 +57,7 @@ class node_active extends context_condition {
 //       if (!empty($obj_page->nid)) {
 //         $flags = flag_get_flags('node');
 //         $arr_flags = array();
-//         foreach($flags as $flag) {
+//         foreach ($flags as $flag) {
 //           $obj_flag = flag_get_flag($flag->name);
 //           $arr_flags[$flag->name] = $obj_flag->is_flagged($obj_page->nid);
 //         }
