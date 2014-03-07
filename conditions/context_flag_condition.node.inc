@@ -16,6 +16,21 @@ class node_active extends context_condition {
     }
     return $values;
   }
+  function options_form($context) {
+    $defaults = $this->fetch_from_context($context, 'options');
+    $default_value = FALSE;
+    if (isset($defaults['flag_node_all'])) {
+      $default_value = $defaults['flag_node_all'];
+    }
+    return array(
+      'flag_node_all' => array(
+        '#title' => t('Require all flags'),
+        '#type' => 'checkbox',
+        '#description' => t('Trigger this context only when ALL selections are active.'),
+        '#default_value' => $default_value,
+      ),
+    );
+  }
   function execute() {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();
@@ -27,6 +42,13 @@ class node_active extends context_condition {
           $arr_flags[$flag->name] = $obj_flag->is_flagged($obj_page->nid);
         }
         foreach ($this->get_contexts() as $context) {
+          $options = $this->fetch_from_context($context, 'options');
+          $require_all = FALSE;
+          if (isset($options['flag_node_all'])) {
+            $require_all = $options['flag_node_all'];
+          }
+          // @TODO: make $require_all contexts actually require all.
+          // if ($require_all) { dsm('require all'); }
           $arr_trigger_flags = $context->conditions['node_active']['values'];
           foreach ($arr_trigger_flags as $flag_name) {
             if ($arr_flags[$flag_name]) {
