@@ -27,6 +27,7 @@ function context_flag_context_plugins() {
   //     'parent' => 'context_condition',
   //   ),
   // );
+
   // Plugins: Entity Flags
   $plugins['entity_active'] = array(
     'handler' => array(
@@ -44,6 +45,7 @@ function context_flag_context_plugins() {
   //     'parent' => 'context_condition',
   //   ),
   // );
+
   // Plugins: Node Flags
   $plugins['node_active'] = array(
     'handler' => array(
@@ -61,6 +63,7 @@ function context_flag_context_plugins() {
   //     'parent' => 'context_condition',
   //   ),
   // );
+
   // Plugins: User Page Flags
   $plugins['user_page_active'] = array(
     'handler' => array(
@@ -78,6 +81,7 @@ function context_flag_context_plugins() {
   //     'parent' => 'context_condition',
   //   ),
   // );
+  
   // Plugins: User Account Flags
   $plugins['user_account_active'] = array(
     'handler' => array(
