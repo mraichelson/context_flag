@@ -8,6 +8,7 @@ files[] = conditions/context_flag_condition.comment.inc
 files[] = conditions/context_flag_condition.entity.inc
 files[] = conditions/context_flag_condition.node.inc
 files[] = conditions/context_flag_condition.user.inc
+files[] = conditions/context_flag_condition.user_page.inc
 
 dependencies[] = context
 dependencies[] = flag
