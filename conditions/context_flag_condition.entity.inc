@@ -7,7 +7,7 @@
 /**
  * Entity Active Flag condition.
  */
-class entity_active extends context_condition {
+class ContextFlagEntityActive extends context_condition {
   function condition_values() {
     $flags = flag_get_flags('entity');
     $values = array();
@@ -30,7 +30,7 @@ class entity_active extends context_condition {
 /**
  * Entity Inactive Flag condition.
  */
-// class entity_inactive extends context_condition {
+// class ContextFlagEntityInactive extends context_condition {
 //   function condition_values() {
 //     $flags = flag_get_flags('entity');
 //     $values = array();

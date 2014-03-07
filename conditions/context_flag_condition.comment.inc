@@ -7,7 +7,7 @@
 /**
  * Comment Active Flag condition.
  */
-class comment_active extends context_condition {
+class ContextFlagCommentActive extends context_condition {
   function condition_values() {
     $flags = flag_get_flags('comment');
     $values = array();
@@ -30,7 +30,7 @@ class comment_active extends context_condition {
 /**
  * Comment Inactive Flag condition.
  */
-// class comment_inactive extends context_condition {
+// class ContextFlagCommentInactive extends context_condition {
 //   function condition_values() {
 //     $flags = flag_get_flags('comment');
 //     $values = array();

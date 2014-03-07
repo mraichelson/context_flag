@@ -7,7 +7,7 @@
 /**
  * Node Active Flag condition.
  */
-class node_active extends context_condition {
+class ContextFlagNodeActive extends context_condition {
   function condition_values() {
     $flags = flag_get_flags('node');
     $values = array();
@@ -75,7 +75,7 @@ class node_active extends context_condition {
 /**
  * Node Inactive Flag condition.
  */
-// class node_inactive extends context_condition {
+// class ContextFlagNodeInactive extends context_condition {
 //   function condition_values() {
 //     $flags = flag_get_flags('node');
 //     $values = array();

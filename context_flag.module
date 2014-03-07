@@ -15,7 +15,7 @@ function context_flag_context_plugins() {
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.comment.inc',
-      'class' => 'comment_active',
+      'class' => 'ContextFlagCommentActive',
       'parent' => 'context_condition',
     ),
   );
@@ -23,7 +23,7 @@ function context_flag_context_plugins() {
   //   'handler' => array(
   //     'path' => $path,
   //     'file' => 'context_flag_condition.comment.inc',
-  //     'class' => 'comment_inactive',
+  //     'class' => 'ContextFlagCommentInactive',
   //     'parent' => 'context_condition',
   //   ),
   // );
@@ -33,7 +33,7 @@ function context_flag_context_plugins() {
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.entity.inc',
-      'class' => 'entity_active',
+      'class' => 'ContextFlagEntityActive',
       'parent' => 'context_condition',
     ),
   );
@@ -41,7 +41,7 @@ function context_flag_context_plugins() {
   //   'handler' => array(
   //     'path' => $path,
   //     'file' => 'context_flag_condition.entity.inc',
-  //     'class' => 'entity_inactive',
+  //     'class' => 'ContextFlagEntityInactive',
   //     'parent' => 'context_condition',
   //   ),
   // );
@@ -51,7 +51,7 @@ function context_flag_context_plugins() {
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.node.inc',
-      'class' => 'node_active',
+      'class' => 'ContextFlagNodeActive',
       'parent' => 'context_condition',
     ),
   );
@@ -59,7 +59,7 @@ function context_flag_context_plugins() {
   //   'handler' => array(
   //     'path' => $path,
   //     'file' => 'context_flag_condition.node.inc',
-  //     'class' => 'node_inactive',
+  //     'class' => 'ContextFlagNodeInactive',
   //     'parent' => 'context_condition',
   //   ),
   // );
@@ -69,7 +69,7 @@ function context_flag_context_plugins() {
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.user.inc',
-      'class' => 'user_page_active',
+      'class' => 'ContextFlagUserPageActive',
       'parent' => 'context_condition',
     ),
   );
@@ -77,7 +77,7 @@ function context_flag_context_plugins() {
   //   'handler' => array(
   //     'path' => $path,
   //     'file' => 'context_flag_condition.user.inc',
-  //     'class' => 'user_page_inactive',
+  //     'class' => 'ContextFlagUserPageInactive',
   //     'parent' => 'context_condition',
   //   ),
   // );
@@ -87,7 +87,7 @@ function context_flag_context_plugins() {
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.user.inc',
-      'class' => 'user_account_active',
+      'class' => 'ContextFlagUserAccountActive',
       'parent' => 'context_condition',
     ),
   );
@@ -95,7 +95,7 @@ function context_flag_context_plugins() {
   //   'handler' => array(
   //     'path' => $path,
   //     'file' => 'context_flag_condition.user.inc',
-  //     'class' => 'user_account_inactive',
+  //     'class' => 'ContextFlagUserAccountInactive',
   //     'parent' => 'context_condition',
   //   ),
   // );

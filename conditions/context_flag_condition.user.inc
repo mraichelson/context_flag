@@ -7,7 +7,7 @@
 /**
  * User Page Active Flag condition.
  */
-class user_page_active extends context_condition {
+class ContextFlagUserPageActive extends context_condition {
   function condition_values() {
     $flags = flag_get_flags('user');
     $values = array();
@@ -45,7 +45,7 @@ class user_page_active extends context_condition {
  * User Page Inactive Flag condition.
  * TODO: Make this work.
  */
-// class user_page_inactive extends context_condition {
+// class ContextFlagUserPageInactive extends context_condition {
 //   function condition_values() {
 //     $flags = flag_get_flags('user');
 //     $values = array();
@@ -68,7 +68,7 @@ class user_page_active extends context_condition {
 /**
  * Current logged in user has active flag.
  */
-class user_account_active extends context_condition {
+class ContextFlagUserAccountActive extends context_condition {
   function condition_values() {
     $flags = flag_get_flags('user');
     $values = array();
@@ -103,7 +103,7 @@ class user_account_active extends context_condition {
  * Current logged in user does not have active flag.
  * TODO: Make this work.
  */
-// class user_account_inactive extends context_condition {
+// class ContextFlagUserAccountInactive extends context_condition {
 //   function condition_values() {
 //     $flags = flag_get_flags('user');
 //     $values = array();
