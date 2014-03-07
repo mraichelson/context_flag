@@ -19,11 +19,11 @@ class node_active extends context_condition {
   function options_form($context) {
     $defaults = $this->fetch_from_context($context, 'options');
     $default_value = FALSE;
-    if (isset($defaults['flag_node_all'])) {
-      $default_value = $defaults['flag_node_all'];
+    if (isset($defaults['flag_node_active'])) {
+      $default_value = $defaults['flag_node_active'];
     }
     return array(
-      'flag_node_all' => array(
+      'flag_node_active' => array(
         '#title' => t('Require all flags'),
         '#type' => 'checkbox',
         '#description' => t('Trigger this context only when ALL selections are active.'),
@@ -44,8 +44,8 @@ class node_active extends context_condition {
         foreach ($this->get_contexts() as $context) {
           $options = $this->fetch_from_context($context, 'options');
           $require_all = FALSE;
-          if (isset($options['flag_node_all'])) {
-            $require_all = $options['flag_node_all'];
+          if (isset($options['flag_node_active'])) {
+            $require_all = $options['flag_node_active'];
           }
           // @TODO: make $require_all contexts actually require all.
           // if ($require_all) { dsm('require all'); }
