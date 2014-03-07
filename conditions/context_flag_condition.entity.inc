@@ -28,8 +28,8 @@ class ContextFlagEntityActive extends context_condition {
   // Context check execution.
   function execute() {
     if ($this->condition_used()) {
-      // check if this flag is active for this display.
-      // trigger results.
+      // Check if this flag is active for this display.
+      // Trigger results.
       foreach ($this->get_contexts() as $context) {
         // $this->condition_met($context);
       }
