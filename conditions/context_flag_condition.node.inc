@@ -8,6 +8,9 @@
  * Node Active Flag condition.
  */
 class ContextFlagNodeActive extends context_condition {
+  /**
+   * Context condition values.
+   */
   function condition_values() {
     $flags = flag_get_flags('node');
     $values = array();
@@ -16,6 +19,9 @@ class ContextFlagNodeActive extends context_condition {
     }
     return $values;
   }
+  /** 
+   * Context form modifications.
+   */
   function options_form($context) {
     $defaults = $this->fetch_from_context($context, 'options');
     $default_value = FALSE;
@@ -31,6 +37,9 @@ class ContextFlagNodeActive extends context_condition {
       ),
     );
   }
+  /** 
+   * Context check execution.
+   */
   function execute() {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();

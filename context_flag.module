@@ -173,7 +173,7 @@ function context_flag_context_registry() {
         'plugin' => 'user_page_inactive',
       ),
       */
-      
+
       // User account conditions.
       'user_account_active' => array(
         'title' => 'Current user - flag active',
