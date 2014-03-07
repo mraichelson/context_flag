@@ -35,7 +35,7 @@ class ContextFlagUserAccountActive extends context_condition {
         $obj_flag = flag_get_flag($flag->name);
         $arr_flags[$flag->name] = $obj_flag->is_flagged($account->uid);
       }
-      // Trigger results
+      // Trigger results.
       foreach ($this->get_contexts() as $context) {
         $arr_trigger_flags = $context->conditions['user_account_active']['values'];
         foreach ($arr_trigger_flags as $flag_name) {
