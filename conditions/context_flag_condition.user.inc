@@ -39,7 +39,7 @@ class ContextFlagUserPageActive extends context_condition {
         }
         // trigger results.
         foreach ($this->get_contexts() as $context) {
-          $arr_trigger_flags = $context->conditions[$this->context_setting_name]['values'];
+          $arr_trigger_flags = $context->conditions['user_page_active']['values'];
           foreach ($arr_trigger_flags as $flag_name) {
             if ($arr_flags[$flag_name]) {
               $this->condition_met($context);
