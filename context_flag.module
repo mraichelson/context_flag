@@ -81,7 +81,7 @@ function context_flag_context_plugins() {
   //     'parent' => 'context_condition',
   //   ),
   // );
-  
+
   // Plugins: User Account Flags
   $plugins['user_account_active'] = array(
     'handler' => array(
@@ -135,7 +135,7 @@ function context_flag_context_registry() {
       // Node conditions
       'node_active' => array(
         'title' => 'Node flag active',
-        'description' => t('Enable this context when this Flag is active.'),
+        'description' => t('Enable this context when these Flags are active.'),
         'plugin' => 'node_active',
       ),
       // 'node_inactive' => array(
