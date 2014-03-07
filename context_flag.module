@@ -74,7 +74,7 @@ function context_flag_context_plugins() {
   $plugins['user_page_active'] = array(
     'handler' => array(
       'path' => $path,
-      'file' => 'context_flag_condition.user.inc',
+      'file' => 'context_flag_condition.user_page.inc',
       'class' => 'ContextFlagUserPageActive',
       'parent' => 'context_condition',
     ),
@@ -83,7 +83,7 @@ function context_flag_context_plugins() {
   $plugins['user_page_inactive'] = array(
     'handler' => array(
       'path' => $path,
-      'file' => 'context_flag_condition.user.inc',
+      'file' => 'context_flag_condition.user_page.inc',
       'class' => 'ContextFlagUserPageInactive',
       'parent' => 'context_condition',
     ),
