@@ -1,6 +1,6 @@
 <?php
 /**
- * @file context_flag_condition.entity.inc
+ * @file
  * Provides Context integration for Flags applied to entities.
  */
 
