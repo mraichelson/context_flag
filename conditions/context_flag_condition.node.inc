@@ -47,11 +47,22 @@ class node_active extends context_condition {
           if (isset($options['flag_node_active'])) {
             $require_all = $options['flag_node_active'];
           }
-          // @TODO: make $require_all contexts actually require all.
-          // if ($require_all) { dsm('require all'); }
           $arr_trigger_flags = $context->conditions['node_active']['values'];
-          foreach ($arr_trigger_flags as $flag_name) {
-            if ($arr_flags[$flag_name]) {
+          if (!$require_all) {
+            foreach ($arr_trigger_flags as $flag_name) {
+              if ($arr_flags[$flag_name]) {
+                $this->condition_met($context);
+              }
+            }
+          }
+          else {
+            $is_all_active = TRUE;
+            foreach ($arr_flags as $flag_state) {
+              if (!$flag_state) {
+                $is_all_active = FALSE;
+              }
+            }
+            if ($is_all_active) {
               $this->condition_met($context);
             }
           }
