@@ -50,29 +50,3 @@ class ContextFlagUserPageActive extends context_condition {
     }
   }
 }
-
-/**
- * User Page Inactive Flag condition.
- * TODO: Make this work.
- */
-/*
-class ContextFlagUserPageInactive extends context_condition {
-  function condition_values() {
-    $flags = flag_get_flags('user');
-    $values = array();
-    foreach ($flags as $flag) {
-      $values[$flag->name] = $flag->title;
-    }
-    return $values;
-  }
-  function execute() {
-    if ($this->condition_used()) {
-      // check if this flag is inactive for this display.
-      // trigger results
-      foreach ($this->get_contexts() as $context) {
-        // $this->condition_met($context);
-      }
-    }
-  }
-}
-*/

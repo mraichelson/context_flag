@@ -19,17 +19,6 @@ function context_flag_context_plugins() {
       'parent' => 'context_condition',
     ),
   );
-  /*
-  $plugins['comment_inactive'] = array(
-    'handler' => array(
-      'path' => $path,
-      'file' => 'context_flag_condition.comment.inc',
-      'class' => 'ContextFlagCommentInactive',
-      'parent' => 'context_condition',
-    ),
-  );
-  */
-
   // Plugins: Entity Flags.
   $plugins['entity_active'] = array(
     'handler' => array(
@@ -39,17 +28,6 @@ function context_flag_context_plugins() {
       'parent' => 'context_condition',
     ),
   );
-  /*
-  $plugins['entity_inactive'] = array(
-    'handler' => array(
-      'path' => $path,
-      'file' => 'context_flag_condition.entity.inc',
-      'class' => 'ContextFlagEntityInactive',
-      'parent' => 'context_condition',
-    ),
-  );
-  */
-
   // Plugins: Node Flags.
   $plugins['node_active'] = array(
     'handler' => array(
@@ -59,17 +37,6 @@ function context_flag_context_plugins() {
       'parent' => 'context_condition',
     ),
   );
-  /*
-  $plugins['node_inactive'] = array(
-    'handler' => array(
-      'path' => $path,
-      'file' => 'context_flag_condition.node.inc',
-      'class' => 'ContextFlagNodeInactive',
-      'parent' => 'context_condition',
-    ),
-  );
-  */
-
   // Plugins: User Page Flags.
   $plugins['user_page_active'] = array(
     'handler' => array(
@@ -79,17 +46,6 @@ function context_flag_context_plugins() {
       'parent' => 'context_condition',
     ),
   );
-  /*
-  $plugins['user_page_inactive'] = array(
-    'handler' => array(
-      'path' => $path,
-      'file' => 'context_flag_condition.user_page.inc',
-      'class' => 'ContextFlagUserPageInactive',
-      'parent' => 'context_condition',
-    ),
-  );
-  */
-
   // Plugins: User Account Flags.
   $plugins['user_account_active'] = array(
     'handler' => array(
@@ -99,16 +55,6 @@ function context_flag_context_plugins() {
       'parent' => 'context_condition',
     ),
   );
-  /*
-  $plugins['user_account_inactive'] = array(
-    'handler' => array(
-      'path' => $path,
-      'file' => 'context_flag_condition.user.inc',
-      'class' => 'ContextFlagUserAccountInactive',
-      'parent' => 'context_condition',
-    ),
-  );
-  */
   return $plugins;
 }
 
@@ -124,69 +70,30 @@ function context_flag_context_registry() {
         'description' => t('Enable this context when this Flag is active.'),
         'plugin' => 'comment_active',
       ),
-      /*
-      'comment_inactive' => array(
-        'title' => 'Comment flag inactive',
-        'description' => t('Enable this context when this Flag is inactive.'),
-        'plugin' => 'comment_inactive',
-      ),
-      */
-
       // Entity conditions.
       'entity_active' => array(
         'title' => 'Entity flag active',
         'description' => t('Enable this context when this Flag is active.'),
         'plugin' => 'entity_active',
       ),
-      /*
-      'entity_inactive' => array(
-        'title' => 'Entity flag inactive',
-        'description' => t('Enable this context when this Flag is inactive.'),
-        'plugin' => 'entity_inactive',
-      ),
-      */
-
       // Node conditions.
       'node_active' => array(
         'title' => 'Node flag active',
         'description' => t('Enable this context when these Flags are active.'),
         'plugin' => 'node_active',
       ),
-      /*
-      'node_inactive' => array(
-        'title' => 'Node flag inactive',
-        'description' => t('Enable this context when this Flag is inactive.'),
-        'plugin' => 'node_inactive',
-      ),
-      */
-
       // User page conditions.
       'user_page_active' => array(
         'title' => 'User page flag active',
         'description' => t('Enable this context when viewing a user profile and this Flag is active.'),
         'plugin' => 'user_page_active',
       ),
-      /*
-      'user_page_inactive' => array(
-        'title' => 'User page flag inactive',
-        'description' => t('Enable this context when viewing a user profile and this Flag is inactive.'),
-        'plugin' => 'user_page_inactive',
-      ),
-      */
-
       // User account conditions.
       'user_account_active' => array(
         'title' => 'Current user - flag active',
         'description' => t('Enable this context when this flag is active for the currently logged-in user.'),
         'plugin' => 'user_account_active',
       ),
-      /*
-      'user_account_inactive' => array(
-        'title' => 'Current user - flag inactive',
-        'description' => t('Enable this context when this flag is inactive for the currently logged-in user.'),
-        'plugin' => 'user_account_inactive',
-      ),
-      */
     ),
   );
 }
