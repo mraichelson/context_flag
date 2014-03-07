@@ -195,57 +195,23 @@ function context_flag_context_registry() {
  * Implements hook_context_page_condition().
  */
 function context_flag_context_page_condition() {
-  // Comment conditions.
-  if ($plugin = context_get_plugin('condition', 'comment_active')) {
-    $plugin->execute();
+  // Use the conditions stored in the registry to trigger contexts.
+  $contexts = context_flag_context_registry();
+  foreach($contexts['conditions'] as $delta => $context) {
+    // The user_account_active condition needs the user object passed to it.
+    if ($context['plugin'] === 'user_account_active') {
+      if ($plugin = context_get_plugin('condition', $context['plugin'])) {
+        global $user;
+        $plugin->execute($user);
+      }
+    }
+    // Anything that doesn't have a special condition.
+    else {
+      if ($plugin = context_get_plugin('condition', $context['plugin'])) {
+        $plugin->execute();
+      }
+    }
   }
-  /*
-  if ($plugin = context_get_plugin('condition', 'comment_inactive')) {
-    $plugin->execute();
-  }
-  */
-
-  // Entity conditions.
-  if ($plugin = context_get_plugin('condition', 'entity_active')) {
-    $plugin->execute();
-  }
-  /*
-  if ($plugin = context_get_plugin('condition', 'entity_inactive')) {
-    $plugin->execute();
-  }
-  */
-
-  // Node conditions.
-  if ($plugin = context_get_plugin('condition', 'node_active')) {
-    $plugin->execute();
-  }
-  /*
-  if ($plugin = context_get_plugin('condition', 'node_inactive')) {
-    $plugin->execute();
-  }
-  */
-
-  // User page conditions.
-  if ($plugin = context_get_plugin('condition', 'user_page_active')) {
-    $plugin->execute();
-  }
-  /*
-  if ($plugin = context_get_plugin('condition', 'user_page_inactive')) {
-    $plugin->execute();
-  }
-  */
-  
-  // User account conditions.
-  if ($plugin = context_get_plugin('condition', 'user_account_active')) {
-    global $user;
-    $plugin->execute($user);
-  }
-  /*
-  if ($plugin = context_get_plugin('condition', 'user_account_inactive')) {
-    global $user;
-    $plugin->execute($user);
-  }
-  */
 }
 
 /**
