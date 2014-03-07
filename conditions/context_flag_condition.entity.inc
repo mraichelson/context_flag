@@ -8,6 +8,8 @@
  * Entity Active Flag condition.
  */
 class ContextFlagEntityActive extends context_condition {
+  // Name used for the context setting value with the options_form.
+  public $context_setting_name = 'flag_entity_active';
   // Context condition values.
   function condition_values() {
     $flags = flag_get_flags('entity');
@@ -19,10 +21,9 @@ class ContextFlagEntityActive extends context_condition {
   }
   // Context form modifications.
   function options_form($context) {
-    $context_setting_name = 'flag_entity_active';
     $defaults = $this->fetch_from_context($context, 'options');
-    $default_value = isset($defaults[$context_setting_name]) ? $defaults[$context_setting_name] : FALSE;
-    return _context_flag_requireall_form($context_setting_name, $default_value);
+    $default_value = isset($defaults[$this->context_setting_name]) ? $defaults[$this->context_setting_name] : FALSE;
+    return _context_flag_requireall_form($this->context_setting_name, $default_value);
   }
   // Context check execution.
   function execute() {

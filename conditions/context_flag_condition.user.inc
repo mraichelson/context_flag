@@ -8,6 +8,8 @@
  * User Page Active Flag condition.
  */
 class ContextFlagUserPageActive extends context_condition {
+  // Name used for the context setting value with the options_form.
+  public $context_setting_name = 'flag_user_page_active';
   // Context condition values.
   function condition_values() {
     $flags = flag_get_flags('user');
@@ -19,10 +21,9 @@ class ContextFlagUserPageActive extends context_condition {
   }
   // Context form modifications.
   function options_form($context) {
-    $context_setting_name = 'flag_user_page_active';
     $defaults = $this->fetch_from_context($context, 'options');
-    $default_value = isset($defaults[$context_setting_name]) ? $defaults[$context_setting_name] : FALSE;
-    return _context_flag_requireall_form($context_setting_name, $default_value);
+    $default_value = isset($defaults[$this->context_setting_name]) ? $defaults[$this->context_setting_name] : FALSE;
+    return _context_flag_requireall_form($this->context_setting_name, $default_value);
   }
   // Context check execution.
   function execute() {
@@ -38,7 +39,7 @@ class ContextFlagUserPageActive extends context_condition {
         }
         // trigger results.
         foreach ($this->get_contexts() as $context) {
-          $arr_trigger_flags = $context->conditions['flag_user_page_active']['values'];
+          $arr_trigger_flags = $context->conditions[$this->context_setting_name]['values'];
           foreach ($arr_trigger_flags as $flag_name) {
             if ($arr_flags[$flag_name]) {
               $this->condition_met($context);
@@ -80,6 +81,8 @@ class ContextFlagUserPageInactive extends context_condition {
  * Current logged in user has active flag.
  */
 class ContextFlagUserAccountActive extends context_condition {
+  // Name used for the context setting value with the options_form.
+  public $context_setting_name = 'flag_user_account_active';
   // Context condition values.
   function condition_values() {
     $flags = flag_get_flags('user');
@@ -91,10 +94,9 @@ class ContextFlagUserAccountActive extends context_condition {
   }
   // Context form modifications.
   function options_form($context) {
-    $context_setting_name = 'flag_user_account_active';
     $defaults = $this->fetch_from_context($context, 'options');
-    $default_value = isset($defaults[$context_setting_name]) ? $defaults[$context_setting_name] : FALSE;
-    return _context_flag_requireall_form($context_setting_name, $default_value);
+    $default_value = isset($defaults[$this->context_setting_name]) ? $defaults[$this->context_setting_name] : FALSE;
+    return _context_flag_requireall_form($this->context_setting_name, $default_value);
   }
   // Context check execution.
   function execute($account) {
