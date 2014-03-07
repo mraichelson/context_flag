@@ -8,12 +8,12 @@ Working
 -------
 * Node active flags (includes contexts that require multiple flags)
 * Current active/logged-in user flags
+* User profile active tags
 * Features export
 
 Not working
 -----------
 * Current user inactive flags
-* User profile active tags
 * User profile inactive tags
 
 Todo
@@ -24,3 +24,4 @@ Todo
 * Entity active flags
 * Entity inactive flags
 * Should inactive flags be an option at all? I'm sure there's a potential use-case for them, but I'm not sure they're really useful.
+* User Profile flags should work in combination with modified profile pages from modules like Profile2.
