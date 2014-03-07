@@ -11,17 +11,12 @@ Working
 * User profile active tags
 * Features export
 
-Not working
------------
-* Current user inactive flags
-* User profile inactive tags
-
 Todo
 ----
-* Node inactive flags (if used with another condition these seem to work), I've commented these out for the time being.
-* Comment active flags (I'm not sure if this would be useful or not, I'm leaning towards no.)
-* Comment inactive flags
+* Comment active flags (I'm not sure if this would be useful or not.)
 * Entity active flags
-* Entity inactive flags
-* Should inactive flags be an option at all? I'm sure there's a potential use-case for them, but I'm not sure they're really useful.
-* User Profile flags should work in combination with modified profile pages from modules like Profile2.
+
+Future enhancements (maybe)
+---------------------------
+* {x} Inactive Flag conditions (testing for flaggable items that do NOT have a selected flag applied to them).
+* User Profile flags should work in combination with modified profile pages from modules like Profile2 or Advanced_profile.
