@@ -12,7 +12,7 @@ class ContextFlagEntityActive extends context_condition {
   public $contextSettingName = 'flag_entity_active';
   // Context condition values.
   function condition_values() {
-    $flags = flag_get_flags('entity');
+    $flags = flag_get_flags('entity_type_name');
     $values = array();
     foreach ($flags as $flag) {
       $values[$flag->name] = $flag->title;
