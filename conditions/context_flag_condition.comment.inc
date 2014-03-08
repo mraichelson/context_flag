@@ -29,6 +29,7 @@ class ContextFlagCommentActive extends context_condition {
   function execute() {
     if ($this->condition_used()) {
       // Check if this flag is active for this display.
+      
       // Trigger results.
       foreach ($this->get_contexts() as $context) {
         // $this->condition_met($context);

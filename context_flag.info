@@ -4,7 +4,6 @@ core = 7.x
 package = Context
 
 ; Flag type condition files.
-files[] = conditions/context_flag_condition.comment.inc
 files[] = conditions/context_flag_condition.node.inc
 files[] = conditions/context_flag_condition.user.inc
 files[] = conditions/context_flag_condition.user_page.inc
