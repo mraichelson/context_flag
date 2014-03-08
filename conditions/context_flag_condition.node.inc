@@ -38,10 +38,7 @@ class ContextFlagNodeActive extends context_condition {
         }
         foreach ($this->get_contexts() as $context) {
           $options = $this->fetch_from_context($context, 'options');
-          $require_all = FALSE;
-          if (isset($options[$this->contextSettingName])) {
-            $require_all = $options[$this->contextSettingName];
-          }
+          $require_all = isset($options[$this->contextSettingName]) ? $options[$this->contextSettingName] : FALSE;
           $arr_trigger_flags = $context->conditions['node_active']['values'];
           if (!$require_all) {
             foreach ($arr_trigger_flags as $flag_name) {
@@ -52,8 +49,8 @@ class ContextFlagNodeActive extends context_condition {
           }
           else {
             $is_all_active = TRUE;
-            foreach ($arr_flags as $flag_state) {
-              if (!$flag_state) {
+            foreach ($arr_flags as $delta => $flag_name) {
+              if (!$arr_flags[$delta]) {
                 $is_all_active = FALSE;
               }
             }
