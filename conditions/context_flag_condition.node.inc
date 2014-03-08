@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Provides Context integration for Flags applied to nodes.
+ * Context integration for Flags applied to nodes.
  */
 
 /**

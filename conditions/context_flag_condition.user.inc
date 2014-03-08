@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Provides Context integration for Flags applied to the currently active user account.
+ * Context integration for Flags applied to the currently active user account.
  */
 
 /**
