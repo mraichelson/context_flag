@@ -39,7 +39,7 @@ class ContextFlagUserAccountActive extends context_condition {
       foreach ($this->get_contexts() as $context) {
         $options = $this->fetch_from_context($context, 'options');
         $require_all = isset($options[$this->contextSettingName]) ? $options[$this->contextSettingName] : FALSE;
-        $arr_trigger_flags = $context->conditions['user_account_active']['values'];
+        $arr_trigger_flags = $context->conditions['flag_user_account_active']['values'];
         if (!$require_all) {
           foreach ($arr_trigger_flags as $flag_name) {
             if ($arr_flags[$flag_name]) {

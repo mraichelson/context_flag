@@ -11,7 +11,7 @@ function context_flag_context_plugins() {
   $plugins = array();
   $path = drupal_get_path('module', 'context_flag') . 'conditions/';
   // Plugins: Node Flags.
-  $plugins['node_active'] = array(
+  $plugins['flag_node_active'] = array(
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.node.inc',
@@ -20,7 +20,7 @@ function context_flag_context_plugins() {
     ),
   );
   // Plugins: User Page Flags.
-  $plugins['user_page_active'] = array(
+  $plugins['flag_user_page_active'] = array(
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.user_page.inc',
@@ -29,7 +29,7 @@ function context_flag_context_plugins() {
     ),
   );
   // Plugins: User Account Flags.
-  $plugins['user_account_active'] = array(
+  $plugins['flag_user_account_active'] = array(
     'handler' => array(
       'path' => $path,
       'file' => 'context_flag_condition.user.inc',
@@ -47,22 +47,22 @@ function context_flag_context_registry() {
   return array(
     'conditions' => array(
       // Node conditions.
-      'node_active' => array(
-        'title' => 'Node flag active',
+      'flag_node_active' => array(
+        'title' => 'Flag - node',
         'description' => t('Enable this context when these Flags are active.'),
-        'plugin' => 'node_active',
+        'plugin' => 'flag_node_active',
       ),
       // User page conditions.
-      'user_page_active' => array(
-        'title' => 'User page flag active',
+      'flag_user_page_active' => array(
+        'title' => 'Flag - user page',
         'description' => t('Enable this context when viewing a user profile and this Flag is active.'),
-        'plugin' => 'user_page_active',
+        'plugin' => 'flag_user_page_active',
       ),
       // User account conditions.
-      'user_account_active' => array(
-        'title' => 'Current user - flag active',
-        'description' => t('Enable this context when this flag is active for the currently logged-in user.'),
-        'plugin' => 'user_account_active',
+      'flag_user_account_active' => array(
+        'title' => 'Flag - current user',
+        'description' => t('Enable this context when this Flag is active for the currently logged-in user.'),
+        'plugin' => 'flag_user_account_active',
       ),
     ),
   );
@@ -76,7 +76,7 @@ function context_flag_context_page_condition() {
   $contexts = context_flag_context_registry();
   foreach ($contexts['conditions'] as $context) {
     // The user_account_active condition needs the user object passed to it.
-    if ($context['plugin'] === 'user_account_active') {
+    if ($context['plugin'] === 'flag_user_account_active') {
       if ($plugin = context_get_plugin('condition', $context['plugin'])) {
         global $user;
         $plugin->execute($user);
