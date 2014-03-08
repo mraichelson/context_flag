@@ -36,5 +36,4 @@ Current maintainers:
 This project has been sponsored by:
 * We Make Wonderful Things, LLC
   We Make Wonderful Things is a small technology shop specializing in web
-  development (mostly with Drupal).
-  http://wemakewonderfulthings.com/
+  development (mostly with Drupal). (http://wemakewonderfulthings.com/)
