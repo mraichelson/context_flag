@@ -39,9 +39,24 @@ class ContextFlagUserPageActive extends context_condition {
         }
         // Trigger results.
         foreach ($this->get_contexts() as $context) {
+          $options = $this->fetch_from_context($context, 'options');
+          $require_all = isset($options[$this->contextSettingName]) ? $options[$this->contextSettingName] : FALSE;
           $arr_trigger_flags = $context->conditions['user_page_active']['values'];
-          foreach ($arr_trigger_flags as $flag_name) {
-            if ($arr_flags[$flag_name]) {
+          if (!$require_all) {
+            foreach ($arr_trigger_flags as $flag_name) {
+              if ($arr_flags[$flag_name]) {
+                $this->condition_met($context);
+              }
+            }
+          }
+          else {
+            $is_all_active = TRUE;
+            foreach ($arr_flags as $delta => $flag_name) {
+              if (!$arr_flags[$delta]) {
+                $is_all_active = FALSE;
+              }
+            }
+            if ($is_all_active) {
               $this->condition_met($context);
             }
           }
