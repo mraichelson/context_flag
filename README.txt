@@ -1,22 +1,37 @@
 Context_Flag
 ============
 
-This module provides integration between the Context and Flag modules.
-When enabled it creates new Context conditions which can be triggered based on the value of a Flag.
+INTRODUCTION
+------------
+This module provides integration between the Context and Flag modules. When enabled it creates new Context conditions which can be triggered based on the value of a Flag.
 
-Working
--------
-* Node active flags (includes contexts that require multiple flags)
-* Current active/logged-in user flags
-* User profile active tags
-* Features export
+* For a full description of the module, visit the project page:
+  https://drupal.org/sandbox/mraichelson/2047083
+* To submit bug reports and feature suggestions, or to track changes:
+  https://drupal.org/project/issues/2047083
 
-Todo
-----
-* Comment active flags (I'm not sure if this would be useful or not.)
-* Entity active flags
+REQUIREMENTS
+------------
+This module requires the following modules:
+* Context (https://drupal.org/project/context)
+* Flag (https://drupal.org/project/flag)
 
-Future enhancements (maybe)
----------------------------
-* {x} Inactive Flag conditions (testing for flaggable items that do NOT have a selected flag applied to them).
-* User Profile flags should work in combination with modified profile pages from modules like Profile2 or Advanced_profile.
+INSTALLATION
+------------
+* Install as usual, see https://drupal.org/documentation/install/modules-themes/modules-7 for further information.
+
+CONFIGURATION
+-------------
+* The context conditions provided by this module are available through the main
+  Context UI at Admin > Structure > Context.
+
+MAINTAINERS
+-----------
+Current maintainers:
+* Michael Raichelson (mraichelson) - https://drupal.org/user/191498
+
+This project has been sponsored by:
+* We Make Wonderful Things, LLC
+  We Make Wonderful Things is a small technology shop specializing in web
+  development (mostly with Drupal).
+  http://wemakewonderfulthings.com/
