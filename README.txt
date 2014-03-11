@@ -16,7 +16,7 @@ REQUIREMENTS
 ------------
 This module requires the following modules:
 * Context (https://drupal.org/project/context)
-* Flag (https://drupal.org/project/flag)
+* Flag v3.0 or greater. (https://drupal.org/project/flag)
 
 INSTALLATION
 ------------

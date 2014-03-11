@@ -1,5 +1,5 @@
-name = "Context Flag"
-description = "Provides integration between the Context and Flag modules."
+name = Context Flag
+description = Provides integration between the Context and Flag modules.
 core = 7.x
 package = Context
 
@@ -9,4 +9,4 @@ files[] = conditions/context_flag_condition.user.inc
 files[] = conditions/context_flag_condition.user_page.inc
 
 dependencies[] = context
-dependencies[] = flag
+dependencies[] = flag (>3.0)
