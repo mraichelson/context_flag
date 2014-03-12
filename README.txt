@@ -23,6 +23,13 @@ management interface.
 * Flag - current user: This will be active if the user account currently being
   used to view the site has flags applied to it.
 
+FAQS
+----
+Q: How do I apply this to the anonymous user?
+A: Since the Anonymous user is actually a role and not a specific user account
+   you can do this by using the default &quot;User role&quot; Context condition
+   (included as part of the main context module).
+
 REQUIREMENTS
 ------------
 This module requires the following modules:
