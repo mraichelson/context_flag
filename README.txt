@@ -26,9 +26,9 @@ management interface.
 FAQS
 ----
 Q: How do I apply this to the anonymous user?
-A: Since the Anonymous user is actually a role and not a specific user account
-   you can do this by using the default &quot;User role&quot; Context condition
-   (included as part of the main context module).
+A: Since the Anonymous user has its own role you can do this by using the 
+   default &quot;User role&quot; Context condition (included as part of the
+   main context module).
 
 REQUIREMENTS
 ------------
