@@ -12,6 +12,17 @@ value of a Flag.
 * To submit bug reports and feature suggestions, or to track changes:
   https://drupal.org/project/issues/2047083
 
+PROVIDED CONTEXT CONDITIONS
+---------------------------
+The Context Flag module adds three new options for conditions to the Context
+management interface.
+* Flag - node: This will be active when viewing a node with the identified
+  flags applied to it.
+* Flag - user page: This will be active when viewing the profile page of a user
+  with flags applied to them.
+* Flag - current user: This will be active if the user account currently being
+  used to view the site has flags applied to it.
+
 REQUIREMENTS
 ------------
 This module requires the following modules:
