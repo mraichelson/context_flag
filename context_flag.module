@@ -105,3 +105,23 @@ function _context_flag_requireall_form($str_setting, &$value = FALSE) {
   );
   return $form;
 }
+
+/**
+ * Implements hook_help().
+ */
+function context_flag_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#context_flag':
+      $markup = array();
+      $markup[] = '<h3>' . t('About Context Flag') . '</h3>';
+      $markup[] = '<p>' . t('The Context Flag module adds three new options for conditions to the Context management interface.') . '</p>';
+      $markup[] = '<ul>';
+      $markup[] =   '<li>' . t('Flag - node: This will be active when viewing a node with the identified flags applied to it.') . '</li>';
+      $markup[] =   '<li>' . t('Flag - user page: This will be active when viewing the profile page of a user with flags applied to them.') . '</li>';
+      $markup[] =   '<li>' . t('Flag - current user: This will be active if the user account currently being used to view the site has flags applied to it.') . '</li>';
+      $markup[] = '</ul>';
+      $markup[] = '<h4>' . t('How do I apply this to the anonymous user?') . '</h4>';
+      $markup[] = '<p>' . t('Since the Anonymous user is actually a role and not a specific user account you can do this by using the default &quot;User role&quot; Context condition (included as part of the main context module).') . '</p>';
+      return implode('', $markup);
+  }
+}
