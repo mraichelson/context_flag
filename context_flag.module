@@ -121,7 +121,7 @@ function context_flag_help($path, $arg) {
       $markup[] = '<li>' . t('Flag - current user: This will be active if the user account currently being used to view the site has flags applied to it.') . '</li>';
       $markup[] = '</ul>';
       $markup[] = '<h4>' . t('How do I apply this to the anonymous user?') . '</h4>';
-      $markup[] = '<p>' . t('Since the Anonymous has its own role you can do this by using the default &quot;User role&quot; Context condition (included as part of the main context module).') . '</p>';
+      $markup[] = '<p>' . t('Since the Anonymous user has its own role you can do this by using the default &quot;User role&quot; Context condition (included as part of the main context module).') . '</p>';
       return implode('', $markup);
   }
 }
