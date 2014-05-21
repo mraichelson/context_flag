@@ -48,19 +48,19 @@ function context_flag_context_registry() {
     'conditions' => array(
       // Node conditions.
       'flag_node_active' => array(
-        'title' => 'Flag - node',
+        'title' => t('Flag - node'),
         'description' => t('Enable this context when these Flags are active.'),
         'plugin' => 'flag_node_active',
       ),
       // User page conditions.
       'flag_user_page_active' => array(
-        'title' => 'Flag - user page',
+        'title' => t('Flag - user page'),
         'description' => t('Enable this context when viewing a user profile and this Flag is active.'),
         'plugin' => 'flag_user_page_active',
       ),
       // User account conditions.
       'flag_user_account_active' => array(
-        'title' => 'Flag - current user',
+        'title' => t('Flag - current user'),
         'description' => t('Enable this context when this Flag is active for the currently logged-in user.'),
         'plugin' => 'flag_user_account_active',
       ),
@@ -93,6 +93,16 @@ function context_flag_context_page_condition() {
 
 /**
  * Helper function for managing the "Require all flags" checkbox on forms.
+ * 
+ * This is used in multiple condition plugins as part of options_form().
+ *
+ * @param string $str_setting
+ *   The name of the context setting value for the selected context.
+ * @param bool $value
+ *   The checked/unchecked state of this checkbox.
+ *
+ * @return
+ *   A forms API form element for capturing settings for this context.
  */
 function _context_flag_requireall_form($str_setting, &$value = FALSE) {
   $form = array(
