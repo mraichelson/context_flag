@@ -49,7 +49,7 @@ class ContextFlagUserAccountActive extends context_condition {
         }
         else {
           $is_all_active = TRUE;
-          foreach ($arr_flags as $delta => $flag_name) {
+          foreach ($arr_trigger_flags as $delta => $flag_name) {
             if (!$arr_flags[$delta]) {
               $is_all_active = FALSE;
             }
