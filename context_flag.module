@@ -101,7 +101,7 @@ function context_flag_context_page_condition() {
  * @param bool $value
  *   The checked/unchecked state of this checkbox.
  *
- * @return
+ * @return array
  *   A forms API form element for capturing settings for this context.
  */
 function _context_flag_requireall_form($str_setting, &$value = FALSE) {
