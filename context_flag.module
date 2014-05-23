@@ -93,7 +93,7 @@ function context_flag_context_page_condition() {
 
 /**
  * Helper function for managing the "Require all flags" checkbox on forms.
- * 
+ *
  * This is used in multiple condition plugins as part of options_form().
  *
  * @param string $str_setting
