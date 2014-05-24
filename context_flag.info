@@ -5,3 +5,7 @@ package = Context
 
 dependencies[] = context
 dependencies[] = flag (>3.0)
+
+files[] = conditions/context_flag_condition.node.inc
+files[] = conditions/context_flag_condition.user.inc
+files[] = conditions/context_flag_condition.user_page.inc
