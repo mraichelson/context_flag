@@ -5,3 +5,5 @@ package = Context
 
 dependencies[] = context
 dependencies[] = flag (>3.0)
+
+files[] = conditions/context_flag_condition.base.inc

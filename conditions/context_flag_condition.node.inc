@@ -7,23 +7,12 @@
 /**
  * Node Active Flag condition.
  */
-class ContextFlagNodeActive extends context_condition {
+class ContextFlagNodeActive extends ContextFlagBase {
   // Name used for the context setting value with the options_form.
   public $contextSettingName = 'flag_node_active';
-  // Context condition values.
-  function condition_values() {
-    $flags = flag_get_flags('node');
-    $values = array();
-    foreach ($flags as $flag) {
-      $values[$flag->name] = $flag->title;
-    }
-    return $values;
-  }
-  // Context form modifications.
-  function options_form($context) {
-    $defaults = $this->fetch_from_context($context, 'options');
-    $default_value = isset($defaults[$this->contextSettingName]) ? $defaults[$this->contextSettingName] : FALSE;
-    return _context_flag_requireall_form($this->contextSettingName, $default_value);
+  // Define the type of flags to be looking for.
+  public function __construct() {
+    $this->setFlagType('node');
   }
   // Context check execution.
   function execute() {
