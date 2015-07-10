@@ -16,7 +16,7 @@ function context_flag_context_plugins() {
       'path' => $path,
       'file' => 'context_flag_condition.node.inc',
       'class' => 'ContextFlagNodeActive',
-      'parent' => 'context_condition',
+      'parent' => 'ContextFlagBase',
     ),
   );
   // Plugins: User Page Flags.
@@ -25,7 +25,7 @@ function context_flag_context_plugins() {
       'path' => $path,
       'file' => 'context_flag_condition.user_page.inc',
       'class' => 'ContextFlagUserPageActive',
-      'parent' => 'context_condition',
+      'parent' => 'ContextFlagBase',
     ),
   );
   // Plugins: User Account Flags.
@@ -34,7 +34,7 @@ function context_flag_context_plugins() {
       'path' => $path,
       'file' => 'context_flag_condition.user.inc',
       'class' => 'ContextFlagUserAccountActive',
-      'parent' => 'context_condition',
+      'parent' => 'ContextFlagBase',
     ),
   );
   return $plugins;
