@@ -34,6 +34,7 @@ abstract class ContextFlagBase extends context_condition {
 
     // @TODO: remove debugging code
     dpm('DEBUGGING CODE: ContextFlagBase...');
+    dpm('flag type is ' . $this->flagType);
     dpm('context setting name is ' . $this->contextSettingName);
     dpm('$context');
     dpm($context);
@@ -41,6 +42,7 @@ abstract class ContextFlagBase extends context_condition {
     dpm($defaults);
     dpm('$default_value');
     dpm($default_value);
+    dpm(' ===== ');
 
     return $this->requireAllForm($this->contextSettingName, $default_value);
   }
