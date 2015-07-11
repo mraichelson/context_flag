@@ -51,7 +51,7 @@ abstract class ContextFlagBase extends context_condition {
   // (Naming pattern must comply with existing code from context module.)
   public function condition_values() {
     $values = array();
-    if($this->hasAvailableFlags()) {
+    if ($this->hasAvailableFlags()) {
       $flags = $this->getFlagsForType();
       foreach ($flags as $flag) {
         $values[$flag->name] = $flag->title;
