@@ -8,9 +8,9 @@ enabled it creates new Context conditions which can be triggered based on the
 value of a Flag.
 
 * For a full description of the module, visit the project page:
-  https://drupal.org/sandbox/mraichelson/2047083
+  https://drupal.org/project/context_flag
 * To submit bug reports and feature suggestions, or to track changes:
-  https://drupal.org/project/issues/2047083
+  https://drupal.org/project/issues/context_flag
 
 PROVIDED CONTEXT CONDITIONS
 ---------------------------
