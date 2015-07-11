@@ -48,6 +48,7 @@ abstract class ContextFlagBase extends context_condition {
     return flag_get_flags($this->flagType);
   }
   // Return the list of flags available for this type.
+  // (Naming pattern must comply with existing code from context module.)
   public function condition_values() {
     $values = array();
     if($this->hasAvailableFlags()) {
@@ -62,6 +63,7 @@ abstract class ContextFlagBase extends context_condition {
     return $values;
   }
   // Options configuration form.
+  // (Naming pattern must comply with existing code from context module.)
   public function options_form($context) {
     if ($this->hasAvailableFlags()) {
       $defaults = $this->fetch_from_context($context, 'options');
@@ -97,7 +99,4 @@ abstract class ContextFlagBase extends context_condition {
     );
     return $form;
   }
-  // @TODO: implement get_entity() so that it can be overridden in the condition
-  // specific class files. https://www.drupal.org/node/2273725#comment-8810825
-  public function get_entity() { return FALSE; }
 }
