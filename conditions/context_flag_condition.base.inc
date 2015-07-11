@@ -7,7 +7,6 @@
  *   "inherit from abstract parent?"
  *   https://www.drupal.org/node/2273725
  */
-
 abstract class ContextFlagBase extends context_condition {
   // Attempting to patch in other things that Context needs that freak out
   // when adding this intermediary class.
