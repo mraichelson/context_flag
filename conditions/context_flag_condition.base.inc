@@ -15,8 +15,7 @@ abstract class ContextFlagBase extends context_condition {
     $this->contextSettingName = $setting;
   }
   // Define what kind of flags to look for in this instance.
-  // (Default to "node" because it's a really common use-case.)
-  public $flagType = 'node';
+  public $flagType = NULL;
   public function setFlagType($type) {
     $this->flagType = $type;
   }
@@ -36,9 +35,6 @@ abstract class ContextFlagBase extends context_condition {
   }
   // Options configuration form.
   public function options_form($context) {
-    
-    dpm($this->contextSettingName);
-
     $defaults = $this->fetch_from_context($context, 'options');
     $default_value = FALSE;
     if (isset($defaults[$this->contextSettingName])) {
@@ -46,7 +42,7 @@ abstract class ContextFlagBase extends context_condition {
     }
     return $this->requireAllForm($this->contextSettingName, $default_value);
   }
-  // Controls for the "Require All Flags" form modifier.
+  // Controls for the "Require All Flags" options form modifier.
   public function requireAllForm($setting, $value = FALSE) {
     $form = array();
     $form[$setting] = array(
