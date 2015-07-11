@@ -15,6 +15,7 @@ class ContextFlagNodeActive extends ContextFlagBase {
   }
   // Context check execution.
   function execute() {
+    dpm($this);
     if ($this->condition_used()) {
       $obj_page = menu_get_object();
       if (!empty($obj_page->nid)) {
