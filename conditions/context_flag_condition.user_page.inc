@@ -8,6 +8,7 @@
  * User Page Active Flag condition.
  */
 class ContextFlagUserPageActive extends ContextFlagBase {
+  // Apply settings for this ContextFlagBase instance.
   public function __construct() {
     $this->setContextSettingName('flag_user_page_active');
     $this->setFlagType('user');

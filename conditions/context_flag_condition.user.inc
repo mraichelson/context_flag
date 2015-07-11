@@ -8,6 +8,7 @@
  * Current logged in user has active flag.
  */
 class ContextFlagUserAccountActive extends ContextFlagBase {
+  // Apply settings for this ContextFlagBase instance.
   public function __construct() {
     $this->setContextSettingName('flag_user_account_active');
     $this->setFlagType('user');

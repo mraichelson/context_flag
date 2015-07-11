@@ -8,6 +8,7 @@
  * Node Active Flag condition.
  */
 class ContextFlagNodeActive extends ContextFlagBase {
+  // Apply settings for this ContextFlagBase instance.
   public function __construct() {
     $this->setContextSettingName('flag_node_active');
     $this->setFlagType('node');
