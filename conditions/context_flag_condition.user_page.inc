@@ -10,7 +10,12 @@
 class ContextFlagUserPageActive extends ContextFlagBase {
   // Apply settings for this ContextFlagBase instance.
   public function __construct() {
-    $this->setContextSettingName('flag_user_page_active');
+    $registry = context_flag_context_registry();
+    $key = 'flag_user_page_active';
+    $this->setContextSettingName($key);
+    $this->setPlugin($registry['conditions'][$key]['plugin']);
+    $this->setTitle($registry['conditions'][$key]['title']);
+    $this->setDescription($registry['conditions'][$key]['description']);
     $this->setFlagType('user');
   }
   // Context check execution.

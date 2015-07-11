@@ -9,6 +9,20 @@
  */
 
 abstract class ContextFlagBase extends context_condition {
+  // Attempting to patch in other things that Context needs that freak out
+  // when adding this intermediary class.
+  public $plugin = NULL;
+  public function setPlugin($plugin) {
+    $this->plugin = $plugin;
+  }
+  public $title = NULL;
+  public function setTitle($title) {
+    $this->title = $title;
+  }
+  public $description = NULL;
+  public function setDescription($description) {
+    $this->description = $description;
+  }
   // Context setting name
   public $contextSettingName = NULL;
   public function setContextSettingName($setting) {
