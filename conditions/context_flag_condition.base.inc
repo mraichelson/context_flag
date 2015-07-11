@@ -15,13 +15,10 @@ abstract class ContextFlagBase extends context_condition {
   // Properties used in context_flag code.
   public $contextSettingName = NULL;
   public $flagType = NULL;
-  /**
-   * Property value setting helper.
-   */
+  // Property value setting helper.
   public function setPropertyValue($property, $value) {
     $this->{$property} = $value;    
   }
-
   // Check if flags are available for messaging on the context_ui form.
   private function hasAvailableFlags() {
     $flags = $this->getFlagsForType();
