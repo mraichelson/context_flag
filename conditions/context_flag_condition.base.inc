@@ -32,6 +32,16 @@ abstract class ContextFlagBase extends context_condition {
   public function setFlagType($type) {
     $this->flagType = $type;
   }
+  // Check if flags are available for messaging on the context_ui form.
+  private function hasAvailableFlags() {
+    $flags = $this->getFlagsForType();
+    if (count($flags) > 0) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+  }
   // Rather than keep forcing this to be written out in every instance where it
   // gets used, provide a shared helper for it.
   public function getFlagsForType() {
@@ -39,24 +49,31 @@ abstract class ContextFlagBase extends context_condition {
   }
   // Return the list of flags available for this type.
   public function condition_values() {
-    $flags = $this->getFlagsForType();
     $values = array();
-    foreach ($flags as $flag) {
-      $values[$flag->name] = $flag->title;
+    if($this->hasAvailableFlags()) {
+      $flags = $this->getFlagsForType();
+      foreach ($flags as $flag) {
+        $values[$flag->name] = $flag->title;
+      }
+    }
+    else {
+      $values[NULL] = t('<b>Attention:</b> No flags of this type are available. (Please add one and try again.)'); 
     }
     return $values;
   }
   // Options configuration form.
   public function options_form($context) {
-    // @TODO: Add logic to this so that if a user tries to add a context_flag
-    // condition with no matching flags available it gives them a message
-    // telling them that.
-    $defaults = $this->fetch_from_context($context, 'options');
-    $default_value = FALSE;
-    if (isset($defaults[$this->contextSettingName])) {
-      $default_value = $defaults[$this->contextSettingName];
+    if ($this->hasAvailableFlags()) {
+      $defaults = $this->fetch_from_context($context, 'options');
+      $default_value = FALSE;
+      if (isset($defaults[$this->contextSettingName])) {
+        $default_value = $defaults[$this->contextSettingName];
+      }
+      return $this->requireAllForm($this->contextSettingName, $default_value);
     }
-    return $this->requireAllForm($this->contextSettingName, $default_value);
+    else {
+      return $this->noMatchingFlagsForm($this->contextSettingName);
+    }
   }
   // Controls for the "Require All Flags" options form modifier.
   public function requireAllForm($setting, $value = FALSE) {
