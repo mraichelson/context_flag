@@ -8,10 +8,8 @@
  * Current logged in user has active flag.
  */
 class ContextFlagUserAccountActive extends ContextFlagBase {
-  // Name used for the context setting value with the options_form.
-  public $contextSettingName = 'flag_user_account_active';
-  // Define the type of flags to make available.
   public function __construct() {
+    $this->setContextSettingName('flag_user_account_active');
     $this->setFlagType('user');
   }
   // Context check execution.

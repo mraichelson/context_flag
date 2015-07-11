@@ -8,10 +8,8 @@
  * Node Active Flag condition.
  */
 class ContextFlagNodeActive extends ContextFlagBase {
-  // Name used for the context setting value with the options_form.
-  public $contextSettingName = 'flag_node_active';
-  // Define the type of flags to make available.
   public function __construct() {
+    $this->setContextSettingName('flag_node_active');
     $this->setFlagType('node');
   }
   // Context check execution.
