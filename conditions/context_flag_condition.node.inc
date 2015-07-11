@@ -12,11 +12,11 @@ class ContextFlagNodeActive extends ContextFlagBase {
   public function __construct() {
     $registry = context_flag_context_registry();
     $key = 'flag_node_active';
-    $this->setContextSettingName($key);
-    $this->setPlugin($registry['conditions'][$key]['plugin']);
-    $this->setTitle($registry['conditions'][$key]['title']);
-    $this->setDescription($registry['conditions'][$key]['description']);
-    $this->setFlagType('node');
+    $this->setPropertyValue('contextSettingName', $key);
+    $this->setPropertyValue('plugin', $registry['conditions'][$key]['plugin']);
+    $this->setPropertyValue('title', $registry['conditions'][$key]['title']);
+    $this->setPropertyValue('description', $registry['conditions'][$key]['description']);
+    $this->setPropertyValue('flagType', 'node');
   }
   // Context check execution.
   function execute() {

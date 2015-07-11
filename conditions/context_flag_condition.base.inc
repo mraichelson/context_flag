@@ -8,30 +8,20 @@
  *   https://www.drupal.org/node/2273725
  */
 abstract class ContextFlagBase extends context_condition {
-  // Attempting to patch in other things that Context needs that freak out
-  // when adding this intermediary class.
+  // Properties that are required to keep Context functioning properly
   public $plugin = NULL;
-  public function setPlugin($plugin) {
-    $this->plugin = $plugin;
-  }
   public $title = NULL;
-  public function setTitle($title) {
-    $this->title = $title;
-  }
   public $description = NULL;
-  public function setDescription($description) {
-    $this->description = $description;
-  }
-  // Context setting name
+  // Properties used in context_flag code.
   public $contextSettingName = NULL;
-  public function setContextSettingName($setting) {
-    $this->contextSettingName = $setting;
-  }
-  // Define what kind of flags to look for in this instance.
   public $flagType = NULL;
-  public function setFlagType($type) {
-    $this->flagType = $type;
+  /**
+   * Property value setting helper.
+   */
+  public function setPropertyValue($property, $value) {
+    $this->{$property} = $value;    
   }
+
   // Check if flags are available for messaging on the context_ui form.
   private function hasAvailableFlags() {
     $flags = $this->getFlagsForType();

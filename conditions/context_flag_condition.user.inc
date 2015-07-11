@@ -12,11 +12,11 @@ class ContextFlagUserAccountActive extends ContextFlagBase {
   public function __construct() {
     $registry = context_flag_context_registry();
     $key = 'flag_user_account_active';
-    $this->setContextSettingName($key);
-    $this->setPlugin($registry['conditions'][$key]['plugin']);
-    $this->setTitle($registry['conditions'][$key]['title']);
-    $this->setDescription($registry['conditions'][$key]['description']);
-    $this->setFlagType('user');
+    $this->setPropertyValue('contextSettingName', $key);
+    $this->setPropertyValue('plugin', $registry['conditions'][$key]['plugin']);
+    $this->setPropertyValue('title', $registry['conditions'][$key]['title']);
+    $this->setPropertyValue('description', $registry['conditions'][$key]['description']);
+    $this->setPropertyValue('flagType', 'user');
   }
   // Context check execution.
   function execute($account) {
