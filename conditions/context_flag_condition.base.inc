@@ -48,6 +48,9 @@ abstract class ContextFlagBase extends context_condition {
   }
   // Options configuration form.
   public function options_form($context) {
+    // @TODO: Add logic to this so that if a user tries to add a context_flag
+    // condition with no matching flags available it gives them a message
+    // telling them that.
     $defaults = $this->fetch_from_context($context, 'options');
     $default_value = FALSE;
     if (isset($defaults[$this->contextSettingName])) {
@@ -63,6 +66,17 @@ abstract class ContextFlagBase extends context_condition {
       '#type' => 'checkbox',
       '#description' => t('Trigger this context only when ALL selections are active.'),
       '#default_value' => $value,
+    );
+    return $form;
+  }
+  // Helper for "There are no matching flags to use with this condition" form
+  // modifier.
+  public function noMatchingFlagsForm($setting) {
+    $form = array();
+    $form[$setting] = array(
+      '#type' => 'item',
+      '#title' => t('No matching flags found'),
+      '#description' => t('There are no flags of this type available for use.'),
     );
     return $form;
   }
