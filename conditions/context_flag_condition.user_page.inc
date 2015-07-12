@@ -37,7 +37,7 @@ class ContextFlagUserPageActive extends ContextFlagBase {
           $arr_trigger_flags = $context->conditions[$this->contextSettingName]['values'];
           if (!$require_all) {
             foreach ($arr_trigger_flags as $flag_name) {
-              if ($arr_flags[$flag_name]) {
+              if (isset($arr_flags[$flag_name]) && $arr_flags[$flag_name]) {
                 $this->condition_met($context);
               }
             }
