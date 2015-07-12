@@ -75,14 +75,6 @@ abstract class ContextFlagBase extends context_condition {
     );
     return $form;
   }
-  // Helper for abstracting the logic checking process.
-  // This is the "execute" function that context conditions use by default, it
-  // triggers the (overrideable) contextFlagConditionCheck().
-  public function execute() {
-    $this->contextFlagConditionCheck();
-  }
-  // Stub helper for checking conditions.
-  abstract function contextFlagConditionCheck();
   // Helper for "There are no matching flags to use with this condition" form
   // modifier.
   public function noMatchingFlagsForm($setting) {
@@ -94,4 +86,13 @@ abstract class ContextFlagBase extends context_condition {
     );
     return $form;
   }
+  // Helper for abstracting the logic checking process.
+  // This is the "execute" function that context conditions use by default, it
+  // triggers the (overrideable) contextFlagConditionCheck().
+  public function execute() {
+    $this->contextFlagConditionCheck();
+  }
+  // Stub helper for checking conditions.
+  abstract function contextFlagConditionCheck();
+
 }
