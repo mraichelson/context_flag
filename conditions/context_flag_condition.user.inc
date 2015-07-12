@@ -19,14 +19,15 @@ class ContextFlagUserAccountActive extends ContextFlagBase {
     $this->setPropertyValue('flagType', 'user');
   }
   // Context check execution.
-  function execute($account) {
-    if ($this->condition_used() && !empty($account->uid)) {
+  function contextFlagConditionCheck() {
+    global $user;
+    if ($this->condition_used() && !empty($user->uid)) {
       // Check if this flag is active for this display.
       $flags = $this->getFlagsForType();
       $arr_flags = array();
       foreach ($flags as $flag) {
         $obj_flag = flag_get_flag($flag->name);
-        $arr_flags[$flag->name] = $obj_flag->is_flagged($account->uid);
+        $arr_flags[$flag->name] = $obj_flag->is_flagged($user->uid);
       }
       // Trigger results.
       foreach ($this->get_contexts() as $context) {

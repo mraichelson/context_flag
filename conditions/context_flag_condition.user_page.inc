@@ -19,7 +19,7 @@ class ContextFlagUserPageActive extends ContextFlagBase {
     $this->setPropertyValue('flagType', 'user');
   }
   // Context check execution.
-  function execute() {
+  function contextFlagConditionCheck() {
     if ($this->condition_used()) {
       // Check if this flag is active for this display.
       $arr_flags = array();

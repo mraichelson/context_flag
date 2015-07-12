@@ -19,7 +19,7 @@ class ContextFlagNodeActive extends ContextFlagBase {
     $this->setPropertyValue('flagType', 'node');
   }
   // Context check execution.
-  function execute() {
+  function contextFlagConditionCheck() {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();
       if (!empty($obj_page->nid)) {
