@@ -6,9 +6,14 @@
 
 /**
  * Node Active Flag condition.
+ *
+ * @see ContextFlagBase
+ * @see context_condition
  */
 class ContextFlagNodeActive extends ContextFlagBase {
-  // Apply settings for this ContextFlagBase instance.
+  /**
+   * Construct this context_condition and apply settings specific to it.
+   */
   public function __construct() {
     $registry = context_flag_context_registry();
     $key = 'flag_node_active';
@@ -18,7 +23,9 @@ class ContextFlagNodeActive extends ContextFlagBase {
     $this->setPropertyValue('description', $registry['conditions'][$key]['description']);
     $this->setPropertyValue('flagType', 'node');
   }
-  // Context check execution.
+  /**
+   * Logic for determining if this context_condition should be triggered.
+   */
   function contextFlagConditionCheck() {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();

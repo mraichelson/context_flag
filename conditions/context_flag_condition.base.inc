@@ -4,8 +4,9 @@
  * Abstract base class for context_flag conditions to inherit from.
  *
  * Based on recommendation from joachim in ticket labelled
- *   "inherit from abstract parent?"
- *   https://www.drupal.org/node/2273725
+ * "inherit from abstract parent?"
+ *
+ * @link https://www.drupal.org/node/2273725
  */
 abstract class ContextFlagBase extends context_condition {
   // Properties that are required to keep Context functioning properly
@@ -15,11 +16,17 @@ abstract class ContextFlagBase extends context_condition {
   // Properties used in context_flag code.
   public $contextSettingName = NULL;
   public $flagType = NULL;
-  // Property value setting helper.
+  /**
+   * Helper for setting property values in this context_condition instance.
+   */
   public function setPropertyValue($property, $value) {
     $this->{$property} = $value;    
   }
-  // Check if flags are available for messaging on the context_ui form.
+  /**
+   * Helper for determining if there are flags available for this entity type.
+   *
+   * Used to control help text shown in the context_ui settings form.
+   */
   private function hasAvailableFlags() {
     $flags = $this->getFlagsForType();
     if (count($flags) > 0) {
@@ -29,13 +36,28 @@ abstract class ContextFlagBase extends context_condition {
       return FALSE;
     }
   }
-  // Rather than keep forcing this to be written out in every instance where it
-  // gets used, provide a shared helper for it.
+  /**
+   * Helper function to simplify getting a list of available flags for this type
+   * from the Flag module.
+   *
+   * @return array
+   *   An array of flags available for this entity type.
+   */
   public function getFlagsForType() {
     return flag_get_flags($this->flagType);
   }
-  // Return the list of flags available for this type.
-  // (Naming pattern must comply with existing code from context module.)
+  /**
+   * Returns the list of flags available for this entity type.
+   *
+   * Naming pattern required in order to comply with existing code from the
+   * Context module.
+   *
+   * @return array
+   *   An array of flags available for this type OR an array with a single
+   *   item to let users know that there are no flags of this type available.
+   *   (Needs to return an array for both cases because of how this is used with
+   *   the forms API within the Context module.)
+   */
   public function condition_values() {
     $values = array();
     if ($this->hasAvailableFlags()) {
@@ -49,8 +71,16 @@ abstract class ContextFlagBase extends context_condition {
     }
     return $values;
   }
-  // Options configuration form.
-  // (Naming pattern must comply with existing code from context module.)
+  /**
+   * Options form used when configuring a context within the context_ui.
+   *
+   * Naming pattern required in order to comply with existing code from the
+   * Context module.
+   *
+   * @return array
+   *   Returns a forms API structure for additional fields to add to the
+   *   configuration form.
+   */
   public function options_form($context) {
     if ($this->hasAvailableFlags()) {
       $defaults = $this->fetch_from_context($context, 'options');
@@ -64,7 +94,15 @@ abstract class ContextFlagBase extends context_condition {
       return $this->noMatchingFlagsForm($this->contextSettingName);
     }
   }
-  // Controls for the "Require All Flags" options form modifier.
+  /**
+   * Returns the forms API form for use when creating a Context that requires
+   * multiple flags.
+   *
+   * @return array
+   *   A forms API form.
+   *
+   * @see options_form
+   */
   public function requireAllForm($setting, $value = FALSE) {
     $form = array();
     $form[$setting] = array(
@@ -75,8 +113,15 @@ abstract class ContextFlagBase extends context_condition {
     );
     return $form;
   }
-  // Helper for "There are no matching flags to use with this condition" form
-  // modifier.
+  /**
+   * Returns the forms API form for use when there are no Contexts available for
+   * the specified entity type. (To let users know there are no options
+   * available.)
+   *
+   * @return array
+   *   A forms API form.
+   * @see options_form
+   */
   public function noMatchingFlagsForm($setting) {
     $form = array();
     $form[$setting] = array(
@@ -86,13 +131,22 @@ abstract class ContextFlagBase extends context_condition {
     );
     return $form;
   }
-  // Helper for abstracting the logic checking process.
-  // This is the "execute" function that context conditions use by default, it
-  // triggers the (overrideable) contextFlagConditionCheck().
+  /**
+   * Helper function for abstracting the individual condition logic-checking
+   * process.
+   *
+   * Naming pattern required in order to comply with existing code from the
+   * Context module.
+   *
+   * @see contextFlagConditionCheck
+   */
   public function execute() {
     $this->contextFlagConditionCheck();
   }
-  // Stub helper for checking conditions.
+  /**
+   * Overrideable default method for providing condition-specific logic
+   * checking.
+   */
   abstract function contextFlagConditionCheck();
 
 }

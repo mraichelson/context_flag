@@ -6,9 +6,14 @@
 
 /**
  * Current logged in user has active flag.
+ *
+ * @see ContextFlagBase
+ * @see context_condition
  */
 class ContextFlagUserAccountActive extends ContextFlagBase {
-  // Apply settings for this ContextFlagBase instance.
+  /**
+   * Construct this context_condition and apply settings specific to it.
+   */
   public function __construct() {
     $registry = context_flag_context_registry();
     $key = 'flag_user_account_active';
@@ -18,7 +23,9 @@ class ContextFlagUserAccountActive extends ContextFlagBase {
     $this->setPropertyValue('description', $registry['conditions'][$key]['description']);
     $this->setPropertyValue('flagType', 'user');
   }
-  // Context check execution.
+  /**
+   * Logic for determining if this context_condition should be triggered.
+   */
   function contextFlagConditionCheck() {
     global $user;
     if ($this->condition_used() && !empty($user->uid)) {
