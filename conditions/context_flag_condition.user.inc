@@ -26,7 +26,7 @@ class ContextFlagUserAccountActive extends ContextFlagBase {
   /**
    * Logic for determining if this context_condition should be triggered.
    */
-  function contextFlagConditionCheck() {
+  public function contextFlagConditionCheck() {
     global $user;
     if ($this->condition_used() && !empty($user->uid)) {
       // Check if this flag is active for this display.
@@ -62,4 +62,5 @@ class ContextFlagUserAccountActive extends ContextFlagBase {
       }
     }
   }
+
 }

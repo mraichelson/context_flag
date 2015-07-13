@@ -26,7 +26,7 @@ class ContextFlagNodeActive extends ContextFlagBase {
   /**
    * Logic for determining if this context_condition should be triggered.
    */
-  function contextFlagConditionCheck() {
+  public function contextFlagConditionCheck() {
     if ($this->condition_used()) {
       $obj_page = menu_get_object();
       if (!empty($obj_page->nid)) {
@@ -62,4 +62,5 @@ class ContextFlagNodeActive extends ContextFlagBase {
       }
     }
   }
+
 }

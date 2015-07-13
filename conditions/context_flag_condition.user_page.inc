@@ -26,7 +26,7 @@ class ContextFlagUserPageActive extends ContextFlagBase {
   /**
    * Logic for determining if this context_condition should be triggered.
    */
-  function contextFlagConditionCheck() {
+  public function contextFlagConditionCheck() {
     if ($this->condition_used()) {
       // Check if this flag is active for this display.
       $arr_flags = array();
@@ -64,4 +64,5 @@ class ContextFlagUserPageActive extends ContextFlagBase {
       }
     }
   }
+
 }

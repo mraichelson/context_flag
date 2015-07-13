@@ -8,8 +8,12 @@
  *
  * @link https://www.drupal.org/node/2273725
  */
+
+/**
+ * Provides common tools used by Flag-driven conditions for the Context module.
+ */
 abstract class ContextFlagBase extends context_condition {
-  // Properties that are required to keep Context functioning properly
+  // Properties that are required to keep Context functioning properly.
   public $plugin = NULL;
   public $title = NULL;
   public $description = NULL;
@@ -20,7 +24,7 @@ abstract class ContextFlagBase extends context_condition {
    * Helper for setting property values in this context_condition instance.
    */
   public function setPropertyValue($property, $value) {
-    $this->{$property} = $value;    
+    $this->{$property} = $value;
   }
   /**
    * Helper for determining if there are flags available for this entity type.
@@ -37,8 +41,7 @@ abstract class ContextFlagBase extends context_condition {
     }
   }
   /**
-   * Helper function to simplify getting a list of available flags for this type
-   * from the Flag module.
+   * Helper function to simplify getting a list of flags for this entity type.
    *
    * @return array
    *   An array of flags available for this entity type.
@@ -67,7 +70,7 @@ abstract class ContextFlagBase extends context_condition {
       }
     }
     else {
-      $values[NULL] = t('<b>Attention:</b> No flags of this type are available. (Please add one and try again.)'); 
+      $values[NULL] = t('<b>Attention:</b> No flags of this type are available. (Please add one and try again.)');
     }
     return $values;
   }
@@ -95,8 +98,7 @@ abstract class ContextFlagBase extends context_condition {
     }
   }
   /**
-   * Returns the forms API form for use when creating a Context that requires
-   * multiple flags.
+   * Returns the form for Contexts that requires multiple flags.
    *
    * @return array
    *   A forms API form.
@@ -114,12 +116,11 @@ abstract class ContextFlagBase extends context_condition {
     return $form;
   }
   /**
-   * Returns the forms API form for use when there are no Contexts available for
-   * the specified entity type. (To let users know there are no options
-   * available.)
+   * Returns the form when there are no flags to use for a Context.
    *
    * @return array
    *   A forms API form.
+   *
    * @see options_form
    */
   public function noMatchingFlagsForm($setting) {
@@ -132,8 +133,7 @@ abstract class ContextFlagBase extends context_condition {
     return $form;
   }
   /**
-   * Helper function for abstracting the individual condition logic-checking
-   * process.
+   * Helper function for the individual condition logic-checking process.
    *
    * Naming pattern required in order to comply with existing code from the
    * Context module.
@@ -144,9 +144,8 @@ abstract class ContextFlagBase extends context_condition {
     $this->contextFlagConditionCheck();
   }
   /**
-   * Overrideable default method for providing condition-specific logic
-   * checking.
+   * Overrideable default for providing condition-specific logic.
    */
-  abstract function contextFlagConditionCheck();
+  abstract public function contextFlagConditionCheck();
 
 }
