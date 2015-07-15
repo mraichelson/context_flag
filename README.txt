@@ -22,6 +22,8 @@ management interface.
   with flags applied to them.
 * Flag - current user: This will be active if the user account currently being
   used to view the site has flags applied to it.
+* Flag - taxonomy term page: This will be active when viewing a taxonomy term 
+  page with flags applied to the term.
 
 FAQS
 ----
