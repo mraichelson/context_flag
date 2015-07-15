@@ -37,6 +37,15 @@ function context_flag_context_plugins() {
       'parent' => 'ContextFlagBase',
     ),
   );
+  // Plugins: Taxonomy Term Page.
+  $plugins['flag_taxonomy_page_active'] = array(
+    'handler' => array(
+      'path' => $path,
+      'file' => 'context_flag_condition.taxonomy_page.inc',
+      'class' => 'ContextFlagTaxonomyPageActive',
+      'parent' => 'ContextFlagBase',
+    ),
+  );
   return $plugins;
 }
 
@@ -63,6 +72,12 @@ function context_flag_context_registry() {
         'title' => t('Flag - current user'),
         'description' => t('Enable this context when this Flag is active for the currently logged-in user.'),
         'plugin' => 'flag_user_account_active',
+      ),
+      // Taxonomy page conditions.
+      'flag_taxonomy_page_active' => array(
+        'title' => t('Flag - taxonomy term page'),
+        'description' => t('Enable this context when viewing a taxonomy term page and this Flag is active.'),
+        'plugin' => 'flag_taxonomy_page_active',
       ),
     ),
   );
